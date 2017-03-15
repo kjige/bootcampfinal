@@ -2,6 +2,10 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var methodOverride = require('method-override');
+var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/user');
 var db;
 
@@ -34,9 +38,12 @@ function init() {
 
     app.use(methodOverride('_method'));
 
+    app.use(passport.initialize());
+    app.use(passport.session());
+
     app.use(express.static("./public"));
 
-    require('./controller/controller.js')(app);
+    require('./routes/api-routes.js')(app);
     
     app.listen(PORT, function() { 
         console.log("App listening on PORT: " + PORT); 
