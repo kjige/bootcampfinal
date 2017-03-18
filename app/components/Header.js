@@ -3,7 +3,7 @@
 var React = require("react");
 // var Search = require("./search");
 
-import {link} from 'react-router';
+import { Link } from 'react-router';
 // Create a new class and assign it in a variable Main.
 class Header extends React.Component{
     render(){
@@ -41,7 +41,7 @@ class Header extends React.Component{
                         <a href="contact.html">Contact</a>
                     </li>
                     <li>
-                        <a href="contact.html">Login</a>
+                        <Link to='login' activeClassName='active'>Login</Link>
                     </li>
                     <li>
                         <a href="contact.html">Sign Up</a>
