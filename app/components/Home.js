@@ -5,7 +5,6 @@ import * as axios from 'axios';
 class Home extends React.Component {
   render() {
     return (
-<<<<<<< HEAD
       <div className='container'>
           <div className="row">
               <div className="box">Home

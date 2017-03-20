@@ -14,7 +14,6 @@ import { FreelancerSignUpForm } from "./components/children/FreelancerSignUpForm
 import { EmployerSignUpForm } from "./components/children/EmployerSignUpForm";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
-import { Home } from "./components/Home";
 
 const router = (
     <Router history={hashHistory}>
