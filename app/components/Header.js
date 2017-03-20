@@ -48,6 +48,9 @@ class Header extends React.Component{
                     <li>
                         <a href='#/signup'>Sign Up</a>
                     </li>
+                    <li>
+                        <Link to='register' activeClassName='active'>Register</Link>
+                    </li>
                 </ul>
             </div>
             {/*<!-- /.navbar-collapse -->*/}
