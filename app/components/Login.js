@@ -15,9 +15,11 @@ class Login extends React.Component{
 
   handleSubmit(event) {
     event.preventDefault();
-    axios.post("/login", this.state).then((data)=>{
-      console.log('success', data);
-      this.context.router.push('/home');
+    axios.post("/login", this.state).then((res)=>{
+      if(res===this.state.username) {
+        console.log('success', data);
+        this.context.router.push('/home');
+      }
     
     }).catch((error)=>{
       console.log('error', error);
@@ -44,7 +46,7 @@ class Login extends React.Component{
               type="text" 
               placeholder="Username" 
               onChange={(event)=>this.updateInput(event)}
-              value={this.state.username}
+              defaultValue={this.state.username}
               required />
           </div>
           
@@ -55,7 +57,7 @@ class Login extends React.Component{
               type="password" 
               placeholder="Password" 
               onChange={(event)=>this.updateInput(event)}
-              value={this.state.password}
+              defaultValue={this.state.password}
               required />
           </div>
           

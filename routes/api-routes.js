@@ -8,7 +8,9 @@ module.exports = function (app) {
 
     // Login route
     app.post('/login', passport.authenticate('local'), function (req, res) {
-        res.json(req.user);
+        if (req.user===req.body.username){
+            res.json(true);
+        }
     });
 
     // Register route
@@ -20,7 +22,7 @@ module.exports = function (app) {
                     if (err) { console.log(err); }
                 
                     passport.authenticate('local')(req, res, function () {
-                        res.redirect('/');
+                        res.send(true);
                     });
                 });
             }
