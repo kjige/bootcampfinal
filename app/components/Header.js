@@ -9,7 +9,7 @@ class Header extends React.Component{
     render(){
         return(
     <div>
-        <div className="brand">App Name</div>
+        <div className="brand">Work It!!!</div>
 
     {/*<!-- Navigation -->*/}
     <nav className="navbar navbar-default" role="navigation">
@@ -29,22 +29,22 @@ class Header extends React.Component{
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href='#/home'>Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href='#/about'>About</a>
                     </li>
                     <li>
-                        <a href="blog.html">Blog</a>
+                        <a href='#/contact'>Contact</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href='#/forum'>Forum</a>
                     </li>
                     <li>
-                        <a href="contact.html">Login</a>
+                        <a href='#/login'>Login</a>
                     </li>
                     <li>
-                        <a href="contact.html">Sign Up</a>
+                        <a href='#/signup'>Sign Up</a>
                     </li>
                 </ul>
             </div>
