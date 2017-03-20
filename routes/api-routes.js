@@ -6,10 +6,6 @@ var User = db.User;
 
 module.exports = function (app) {
 
-    app.get("/login", function (req, res) {
-        res.sendFile(path.join(__dirname + "/../public/login.html"));
-    });
-
     // Login route
     app.post('/login', passport.authenticate('local'), function (req, res) {
         res.json(req.user);
