@@ -15,15 +15,23 @@ module.exports = function (app) {
 
     // Register route
     app.post('/register', function (req, res) {
+
         db.findOne({username:req.body.username}, function(err, dbRes){
+
             if (err) { console.log(err); }
             if (!dbRes) {
+
                 db.register(new db({ username : req.body.username }), req.body.password, function(err, user) {
                     if (err) { console.log(err); }
-                
+
                     passport.authenticate('local')(req, res, function () {
-                        res.send(true);
+                        res.json(req.user);
                     });
+                });
+            }
+            else {
+                passport.authenticate('local')(req, res, function () {
+                        res.json(req.user);
                 });
             }
         });

@@ -15,10 +15,8 @@ class Register extends React.Component{
 
   handleSubmit(event) {
     event.preventDefault();
-
     axios.post("/register", this.state).then((res)=>{
-      if (res.user) {
-        console.log('success', data);
+      if (res.data.username===this.state.username) {
         this.context.router.push('/home');
       }
     
@@ -37,7 +35,7 @@ class Register extends React.Component{
     return (
       <div className="row">
       <div className="col-xs-4 col-xs-offset-4 box text-center">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form onSubmit={(event)=> this.handleSubmit(event)} >
             
           <div className="form-group">
