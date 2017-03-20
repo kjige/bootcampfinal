@@ -8,8 +8,8 @@ module.exports = function (app) {
 
     // Login route
     app.post('/login', passport.authenticate('local'), function (req, res) {
-        if (req.user===req.body.username){
-            res.json(true);
+        if (req.user){
+            res.json(req.user);
         }
     });
 

@@ -16,8 +16,7 @@ class Login extends React.Component{
   handleSubmit(event) {
     event.preventDefault();
     axios.post("/login", this.state).then((res)=>{
-      if(res===this.state.username) {
-        console.log('success', data);
+      if(res.data.username===this.state.username) {
         this.context.router.push('/home');
       }
     
