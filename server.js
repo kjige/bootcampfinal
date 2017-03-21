@@ -9,7 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/user');
 var db;
 
-mongoose.Promise = Promise;
+mongoose.Promise = require('bluebird');
 
 mongoose.connect("mongodb://localhost/bootcampfinal", function (err) {
     
