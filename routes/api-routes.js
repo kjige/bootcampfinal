@@ -2,6 +2,8 @@ var path = require('path');
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var db = require('../models/user');
+var Employer = require('../models/employer')
+var Freelancer = require('../models/freelancer');
 var User = db.User;
 
 module.exports = function (app) {
@@ -35,5 +37,32 @@ module.exports = function (app) {
                 });
             }
         });
+    });
+
+    // signup routes
+    app.post('/employer', function (req, res) {
+        // create a new employer profile and pass the req.body to the entry
+        var newEmployer = new Employer(req.body);
+
+        // save the new employer in the employers collection
+        newEmployer.save(function(err, doc) {
+            if (err) {
+                res.send(err);
+            } else {
+                // Find one user in our user collection
+                // then update it by pushing the object id of the employer 
+                db.findOneAndUpdate({ '_id': req.params.id }, { $push: { 'employer': doc._id } }, { new: true }, function(error, doc) {
+                    // log any errors
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        // or send the doc to the browser
+                        res.json(doc);
+                    }
+                });
+                
+            }
+
+        }); 
     });
 }
