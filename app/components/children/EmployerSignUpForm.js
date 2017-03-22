@@ -6,9 +6,9 @@ class EmployerSignUpForm extends React.Component {
     return (
         <div className="box">
       <form>
-        <div className='form-row'>
+        <div className='form-row form-group'>
           <label htmlFor='name'>Name:</label><br/>
-          <input id='name' type='text' required />
+          <input id='name' type='text' className='from-control' required />
         </div>
         <div className='form-row'>
           <label htmlFor='company'>Company:</label><br/>
