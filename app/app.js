@@ -15,45 +15,31 @@ import { EmployerSignUpForm } from "./components/children/EmployerSignUpForm";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Contact } from "./components/Contact";
-
+import { Dash } from "./components/Dash";
 import { Forum } from "./components/Forum";
 
 import * as axios from 'axios';
-
-function requireAuth() {
-  var userId = sessionStorage.getItem('userId');
-  console.log('USERID', userId);
-  if (!userId) {
-    return (
-        <Route>
-            <Redirect to="/login"/>
-        </Route>
-    )
-
-  }
-}
 
 const router = (
     <Router history={hashHistory}>
         <Route path='/' component={Main}>
             <Route path='home' component={Home} />
             <Route path='about' component={About} />
-            
+            <Route path='login' component={Login} />
+            <Route path='register' component={Register} />
+            <Route path='contact' component={Contact} />
+            <IndexRoute component={Home} />
+        </Route>
+
+        <Route path='/dash' component={Dash} >
+            <Route path='forum' component={Forum} />
             <Route path='createprofile' component={CreateProfile}>
                 <Route path='/freelancer' component={FreelancerSignUpForm} />
                 <Route path='/employer' component={EmployerSignUpForm} />
                 <IndexRoute component={FreelancerSignUpForm} />
             </Route>
-
-
-            <Route path='login' component={Login} />
-            <Route path='register' component={Register} />
-            <Route path='forum' component={Forum} />
-            <Route path='contact' component={Contact} />
-
-            <IndexRoute component={Home} />
+            <IndexRoute component={Forum} />
         </Route>
-
     </Router>
 );
 

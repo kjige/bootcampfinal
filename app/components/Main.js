@@ -11,15 +11,12 @@ class Main extends React.Component{
     var userId = sessionStorage.getItem('userId');
     console.log('USERID', userId);
     this.checkId(userId);
-      if (!userId) {
-          this.context.router.push('/login');
-      }
     }
 
     checkId(userId) {
         if (userId) {
         axios.post('findId', {'userId': userId}).then((res)=>{
-            if (!res) this.context.router.push('/login');
+            if (res) this.context.router.push('/dash');
         })
         }
     }
