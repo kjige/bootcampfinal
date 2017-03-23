@@ -1,5 +1,7 @@
 // hook mongoose into the model 
-import * as mongoose from 'mongoose';
+// import * as mongoose from 'mongoose';
+
+var mongoose = require('mongoose');
 
 // save the mongoose.Schema class/constructor object as Schema
 const Schema = mongoose.Schema;
@@ -8,17 +10,20 @@ const SuggestionSchema = new Schema({
     name: {
         type: String,
         trim: true,
-        required: true
+        required: true,
+        value: 'test'
     },
     company: {
         type: String,
         trim: true,
-        required: true
+        required: true,
+        value: 'test'
     },
     description: {
         type: String,
         trim: true,
-        required: true
+        required: true,
+        value: 'test'
     } 
 });
 

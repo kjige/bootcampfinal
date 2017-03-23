@@ -10,8 +10,10 @@ var User = require('./models/user');
 var db;
 
 mongoose.Promise = require('bluebird');
+
+mongoose.connect("mongodb://localhost/workit_db", function (err) {
+
 // heroku_9l5s2lr9:13eioldtva9du8smb6801hqpr3@ds137760.mlab.com:37760/heroku_9l5s2lr9
-mongoose.connect("mongodb://localhost/bootcampfinal", function (err) {
     
     if (err) { console.log("Connection Failed!", err); } 
     
@@ -52,4 +54,7 @@ function init() {
     passport.use(new LocalStrategy(User.authenticate()));
     passport.serializeUser(User.serializeUser());
     passport.deserializeUser(User.deserializeUser());
+
+    
 }
+

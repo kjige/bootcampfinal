@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { ForumForm } from './children/ForumForm';
 import { SuggestionComponent } from './children/SuggestionComponent';
 
@@ -35,3 +36,4 @@ class Forum extends React.Component {
 }
 
 export { Forum };
+

@@ -1,8 +1,15 @@
 import * as React from 'react';
-
 import * as axios from 'axios';
 
 class Home extends React.Component {
+  componentWillMount(){
+    var userId = sessionStorage.getItem('userId');
+      console.log('USERID', userId);
+        if (!userId) {
+            this.context.router.push('/login');
+        }
+  }
+
   render() {
     return (
       <div className='container'>
@@ -25,5 +32,13 @@ class Home extends React.Component {
     );
   }
 }
+
+Home.propTypes = {
+  isAuthenticated: React.PropTypes.func
+};
+
+Home.contextTypes = {
+  router: React.PropTypes.any
+};
 
 export { Home };

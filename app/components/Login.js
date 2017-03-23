@@ -17,6 +17,7 @@ class Login extends React.Component{
     event.preventDefault();
     axios.post("/login", this.state).then((res)=>{
       if(res.data.username===this.state.username) {
+        sessionStorage.setItem('userId', res.data._id);
         this.context.router.push('/home');
       }
     
