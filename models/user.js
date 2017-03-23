@@ -3,7 +3,16 @@ var mongoose = require('mongoose'),
     passportLocalMongoose = require('passport-local-mongoose');
 
 // passportLocalMongoose automatically assigns username, hash, salt
-var User = new Schema({});
+var User = new Schema({
+    freelancer: {
+        type: Schema.Types.ObjectId,
+        ref: 'Freelancer'
+    },
+    employer: {
+        type: Schema.Types.ObjectId,
+        ref: 'Employer'
+    }
+});
 
 User.plugin(passportLocalMongoose);
 

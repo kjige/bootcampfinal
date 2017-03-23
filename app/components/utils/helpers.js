@@ -1,11 +1,15 @@
 import * as axios from 'axios';
 
-class helpers {
-  static authenticate() {
-    axios.post('/login')(req,res, function() {
-      res.json(req.user);
-    });
-  }
-}
+const helper = () => {
+    postEmployer: (postData) => {
+        return axios.post('/employer', postData).then((data) => {
+            console.log('success', data);
 
-export default helpers;
+        })
+        .catch((error) => {
+            console.log('error', error);
+        });
+        console.log('employer profile submitted', postData);
+    }
+};
+

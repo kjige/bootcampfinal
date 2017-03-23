@@ -45,9 +45,9 @@ class Header extends React.Component{
                         <Link to='login' activeClassName='active'>Login</Link>
 
                     </li>
-                    <li>
-                        <a href='#/signup'>Sign Up</a>
-                    </li>
+                    {/*<li>
+                        <a href='#/createprofile'>Create Profile</a>
+                    </li>*/}
                     <li>
                         <Link to='register' activeClassName='active'>Register</Link>
                     </li>
