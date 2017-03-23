@@ -1,3 +1,4 @@
+//comment
 var path = require('path');
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
