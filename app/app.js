@@ -20,14 +20,6 @@ import { Forum } from "./components/Forum";
 
 import * as axios from 'axios';
 
-function requireAuth() {
-  var userId = sessionStorage.getItem('userId');
-  console.log('USERID', userId);
-  if (!userId) {
-
-  }
-}
-
 const router = (
     <Router history={hashHistory}>
         <Route path='/' component={Main}>
@@ -40,14 +32,14 @@ const router = (
         </Route>
 
         <Route path='/dash' component={Dash} >
+            <Route path='forum' component={Forum} />
             <Route path='createprofile' component={CreateProfile}>
-                <Route path='forum' component={Forum} />
                 <Route path='/freelancer' component={FreelancerSignUpForm} />
                 <Route path='/employer' component={EmployerSignUpForm} />
                 <IndexRoute component={FreelancerSignUpForm} />
             </Route>
+            <IndexRoute component={Forum} />
         </Route>
-
     </Router>
 );
 
