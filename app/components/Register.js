@@ -16,6 +16,7 @@ class Register extends React.Component{
   handleSubmit(event) {
     event.preventDefault();
     axios.post("/register", this.state).then((res)=>{
+      sessionStorage.setItem('userId', res.data._id);
       if (res.data.username===this.state.username) {
         this.context.router.push('/home');
       }
