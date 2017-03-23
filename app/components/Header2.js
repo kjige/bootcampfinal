@@ -1,6 +1,6 @@
 var React = require("react");
 
-class Header extends React.Component{
+class Header2 extends React.Component{
     render(){
         return(
     <div>
@@ -33,10 +33,13 @@ class Header extends React.Component{
                         <a href='#/contact'>Contact</a>
                     </li>
                     <li>
-                        <a href='#/login'>Login</a>
+                        <a href='#/dash/createprofile/forum'>Forum</a>
                     </li>
                     <li>
-                        <a href='#/register'>Register</a>
+                        <a href='#/dash/createprofile'>Create Profile</a>
+                    </li>
+                    <li>
+                        <a href='#/dash/logout'>Logout</a>
                     </li>
                 </ul>
             </div>
@@ -50,4 +53,4 @@ class Header extends React.Component{
     }
 }
 
-export {Header};  
+export {Header2};  
