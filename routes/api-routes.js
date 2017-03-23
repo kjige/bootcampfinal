@@ -8,6 +8,7 @@ module.exports = function (app) {
 
     // Login route
     app.post('/login', passport.authenticate('local'), function (req, res) {
+        console.log(req.user);
         if (req.user){
             res.json(req.user);
         }
