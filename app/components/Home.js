@@ -4,10 +4,19 @@ import * as axios from 'axios';
 class Home extends React.Component {
   componentWillMount(){
     var userId = sessionStorage.getItem('userId');
-      console.log('USERID', userId);
-        if (!userId) {
-            this.context.router.push('/login');
-        }
+    console.log('USERID', userId);
+    this.checkId(userId);
+      if (!userId) {
+          this.context.router.push('/login');
+      }
+  }
+
+  checkId(userId) {
+    if (userId) {
+      axios.post('findId', {'userId': userId}).then((res)=>{
+        if (!res) this.context.router.push('/login');
+      })
+    }
   }
 
   render() {
@@ -34,7 +43,8 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  isAuthenticated: React.PropTypes.func
+  isAuthenticated: React.PropTypes.func,
+  checkId: React.PropTypes.func
 };
 
 Home.contextTypes = {

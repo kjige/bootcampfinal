@@ -11,7 +11,6 @@ module.exports = function (app) {
 
     // Login route
     app.post('/login', passport.authenticate('local'), function (req, res) {
-        console.log(req.user);
         if (req.user){
             res.json(req.user);
         }
@@ -38,6 +37,15 @@ module.exports = function (app) {
                         res.json(req.user);
                 });
             }
+        });
+    });
+
+    // check if userId exists
+    app.post('/findId', function (req, res) {
+        db.findOne({_id:req.body.userId}, function(err, dbRes){
+            if (err) console.log(err);
+            if (!dbRes) { res.json(false); }
+            else { res.json(dbRes); }
         });
     });
 
