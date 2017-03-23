@@ -12,7 +12,7 @@ class EmployerSignUpForm extends React.Component {
       company: '',
       field_needed: '',
       image: '',
-      descrtiption: ''
+      description: ''
     });
   }
 
@@ -26,19 +26,6 @@ class EmployerSignUpForm extends React.Component {
     newState[event.target.id] = event.target.value;
     this.setState(newState);
   }
-
-  // componentDidUpdate() {
-
-  //   // helpers.postEmployer('/employer')
-  //   axios.post('/employer', postData).then((data) => {
-  //           console.log('success', data);
-
-  //       })
-  //       .catch((error) => {
-  //           console.log('error', error);
-  //       });
-  //       console.log('employer profile submitted', postData);
-  //   }
   
 
   saveNewPost(data) {
