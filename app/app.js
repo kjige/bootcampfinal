@@ -14,6 +14,7 @@ import { FreelancerSignUpForm } from "./components/children/FreelancerSignUpForm
 import { EmployerSignUpForm } from "./components/children/EmployerSignUpForm";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
+import { Contact } from "./components/Contact";
 
 import { Forum } from "./components/Forum";
 
@@ -48,7 +49,7 @@ const router = (
             <Route path='login' component={Login} />
             <Route path='register' component={Register} />
             <Route path='forum' component={Forum} />
-
+            <Route path='contact' component={Contact} />
 
             <IndexRoute component={Home} />
         </Route>

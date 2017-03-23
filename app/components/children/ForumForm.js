@@ -7,7 +7,7 @@ class ForumForm extends React.Component {
             
      <form>
          <div className='form-row'>
-          <label htmlFor='suggestion'>What's in my mind</label><br/>
+          <label htmlFor='suggestion'>What's on my mind</label><br/>
           <textarea id='suggestion' type='text' rows='5' required />
         </div>
         <div className='form-row'>
