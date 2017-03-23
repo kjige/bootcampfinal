@@ -43,6 +43,7 @@ class EmployerSignUpForm extends React.Component {
   render() {
     return (
         <div className="box">
+
       <form onSubmit={() => this.saveNewPost(this.state)} >
         <div className='form-row'>
           <label 
@@ -53,6 +54,7 @@ class EmployerSignUpForm extends React.Component {
           onChange={(event) => this.updateInput(event)}
           value={this.state.name}
           required />
+
         </div>
         <div className='form-row'>
           <label 
