@@ -43,9 +43,10 @@ module.exports = function (app) {
 
     // signup routes
     app.post('/employer', function (req, res) {
-        
+        console.log(req.body);
         // create a new employer profile and pass the req.body to the entry
         var newEmployer = new Employer(req.body);
+        
 
         // save the new employer in the employers collection
         newEmployer.save(function(err, doc) {
@@ -54,7 +55,7 @@ module.exports = function (app) {
             } else {
                 // Find one user in our user collection
                 // then update it by pushing the object id of the employer 
-                db.findOneAndUpdate({ '_id': res.user.data._id }, { $push: { 'employer': doc._id } }, { new: true }, function(error, doc) {
+                db.findOneAndUpdate({ '_id': req.body.user }, { $push: { 'employer': doc._id } }, { new: true }, function(error, doc) {
                     // log any errors
                     if (err) {
                         console.log(err);
@@ -69,28 +70,40 @@ module.exports = function (app) {
         }); 
     });
     // suggestion box
-    // app.post('/suggestion', function (req, res) {
-    //     var newSuggestion = new Suggestion('test');
+    app.post('/suggestion', function (req, res) {
+        var newSuggestion = new Suggestion(req.body);
 
-    //     // save the new employer in the employers collection
-    //     newSuggestion.save(function(err, doc) {
-    //         if (err) {
-    //             res.send(err);
-    //         } else {
-    //             // Find one user in our user collection
-    //             // then update it by pushing the object id of the employer 
-    //             Employer.findOneAndUpdate({}, { $push: { 'employer': doc._id } }, { new: true }, function(error, doc) {
-    //                 // log any errors
-    //                 if (err) {
-    //                     console.log(err);
-    //                 } else {
-    //                     // or send the doc to the browser
-    //                     res.json(doc);
-    //                 }
-    //             });
+        // save the new employer in the employers collection
+        newSuggestion.save(function(err, doc) {
+            if (err) {
+                res.send(err);
+            } else {
+                // Find one user in our user collection
+                // then update it by pushing the object id of the employer 
+                db.findOneAndUpdate({ '_id': req.body.user }, { $push: { 'suggestion': doc._id } }, { new: true }, function(error, doc) {
+                    // log any errors
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        // or send the doc to the browser
+                        res.json(doc);
+                    }
+                });
                 
-    //         }
+            }
 
-    //     }); 
-    // })
+        }); 
+    });
+
+    app.get('/usersuggestions', function(req, res) {
+        Suggestion.find({}, function(error, doc) {
+            if(error) {
+                res.send(error);
+            }
+            else {
+                res.send(doc);
+                console.log(doc);
+            }
+        });
+    });
 }
