@@ -36,7 +36,6 @@ class ForumForm extends React.Component {
             console.log('error', error);
         });
         console.log('suggestion submitted', data);
-    
   }
   render() {
     return (

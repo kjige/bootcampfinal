@@ -1,6 +1,11 @@
 var React = require("react");
 
-class Header extends React.Component{
+class Header2 extends React.Component{
+    handleLogout() {
+      sessionStorage.removeItem('userId');
+      this.context.router.push('/home');
+    }
+
     render(){
         return(
     <div>
@@ -24,19 +29,13 @@ class Header extends React.Component{
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
                     <li>
-                        <a href='#/home'>Home</a>
+                        <a href='#/dash/forum'>Forum</a>
                     </li>
                     <li>
-                        <a href='#/about'>About</a>
+                        <a href='#/dash/createprofile'>Create Profile</a>
                     </li>
                     <li>
-                        <a href='#/contact'>Contact</a>
-                    </li>
-                    <li>
-                        <a href='#/login'>Login</a>
-                    </li>
-                    <li>
-                        <a href='#/register'>Register</a>
+                        <a onClick={(event)=>{this.handleLogout(event)}}>Logout</a>
                     </li>
                 </ul>
             </div>
@@ -50,4 +49,8 @@ class Header extends React.Component{
     }
 }
 
-export {Header};  
+Header2.contextTypes = {
+  router: React.PropTypes.any
+};
+
+export {Header2};  
