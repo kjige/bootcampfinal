@@ -14,7 +14,7 @@ var User = new Schema({
     },
     suggestion: [{
         type: Schema.Types.ObjectId,
-        ref: 'suggestion'
+        ref: 'Suggestion'
     }]
 });
 

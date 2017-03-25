@@ -104,8 +104,8 @@ module.exports = function (app) {
         }); 
     });
 
-    app.get('/usersuggestion', function(req, res) {
-        Suggestion.find({}, function(error, doc) {
+     app.get('/usersuggestion', function(req, res) {
+        db.find({}).populate('suggestion').exec(function(error, doc) {
             if(error) {
                 res.send(error);
             }
