@@ -32,6 +32,7 @@ class ForumForm extends React.Component {
             
      <form>
          <div className='form-row'>
+
           <label htmlFor='suggestion'>What's in my mind</label><br/>
           <textarea
            defaultValue={this.state.suggestion}

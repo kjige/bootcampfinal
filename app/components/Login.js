@@ -9,8 +9,18 @@ class Login extends React.Component{
     });
   }
 
+  checkId(userId) {
+    if (userId) {
+      axios.post('findId', {'userId': userId}).then((res)=>{
+        if (res) this.context.router.push('/home');
+      })
+    }
+  }
+
   componentWillMount() {
     this.initializeState();
+    var userId = sessionStorage.getItem('userId');
+    this.checkId(userId);
   }
 
   handleSubmit(event) {
