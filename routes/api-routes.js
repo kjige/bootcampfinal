@@ -111,7 +111,7 @@ module.exports = function (app) {
             }
             else {
                 res.send(doc);
-                console.log(doc);
+                console.log('this is the doc',doc);
             }
         });
     });

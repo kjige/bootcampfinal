@@ -2,6 +2,10 @@ import * as React from 'react';
 
 class EachSuggestion extends React.Component {
   render() {
+    var suggestionList = this.props.suggestion.map((item, index) => {
+      return (<li key={index}>{item}</li>);
+      console.log('sug list', {item});
+    }); 
     return(
       <div>
         <p>Suggestion Component</p>
@@ -14,7 +18,9 @@ class EachSuggestion extends React.Component {
         height="50" /> 
 
         <h2>{this.props.user}</h2>
-        <h5>{this.props.suggestion}</h5>
+        <ul>
+          {suggestionList}
+        </ul>
       </div>
     )
   }
