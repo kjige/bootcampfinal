@@ -4,7 +4,7 @@ import { EmployerSignUpForm } from './children/EmployerSignUpForm';
 // import * as axios from 'axios';
 // import { notification } from 'antd';
 
-class SignUp extends React.Component {
+class CreateProfile extends React.Component {
   
   render() {
     return (
@@ -16,7 +16,7 @@ class SignUp extends React.Component {
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
                    <li>
-                        <a href='#/signup'>As whom you want to sign up ??</a>
+                        <a>Profile Type</a>
                     </li>
                     <li>
                         <a href='#freelancer'>Freelancer</a>
@@ -38,13 +38,13 @@ class SignUp extends React.Component {
   }
 }
 
-// SignUp contextTypes
+// CreateProfile contextTypes
 // Needed to get reference to router context
 // so that we can redirect the user programmatically
 // with react router.
 
-// SignUp.contextTypes = {
+// CreateProfile.contextTypes = {
 //   router: React.PropTypes.any
 // };
 
-export { SignUp };
+export { CreateProfile };
