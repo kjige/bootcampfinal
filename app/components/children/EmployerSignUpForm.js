@@ -18,6 +18,12 @@ class EmployerSignUpForm extends React.Component {
 
   componentWillMount() {
     this.initializeState();
+    // getUserId() =>
+    var userId = sessionStorage.getItem('userId');
+      console.log('userId', userId);
+      this.setState({
+        user: userId
+      });
   }
 
   updateInput(event) {
@@ -46,6 +52,10 @@ class EmployerSignUpForm extends React.Component {
 
       <form onSubmit={() => this.saveNewPost(this.state)} >
         <div className='form-row'>
+          <input
+          id='user'
+          type='hidden'
+          value={this.state.user} />
           <label 
           htmlFor='name'>Name:</label><br/>
           <input 

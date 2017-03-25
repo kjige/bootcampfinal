@@ -52,9 +52,10 @@ module.exports = function (app) {
 
     // signup routes
     app.post('/employer', function (req, res) {
-        
+        console.log(req.body);
         // create a new employer profile and pass the req.body to the entry
         var newEmployer = new Employer(req.body);
+        
 
         // save the new employer in the employers collection
         newEmployer.save(function(err, doc) {
@@ -63,7 +64,7 @@ module.exports = function (app) {
             } else {
                 // Find one user in our user collection
                 // then update it by pushing the object id of the employer 
-                db.findOneAndUpdate({ '_id': res.user.data._id }, { $push: { 'employer': doc._id } }, { new: true }, function(error, doc) {
+                db.findOneAndUpdate({ '_id': req.body.user }, { $push: { 'employer': doc._id } }, { new: true }, function(error, doc) {
                     // log any errors
                     if (err) {
                         console.log(err);
@@ -88,7 +89,7 @@ module.exports = function (app) {
             } else {
                 // Find one user in our user collection
                 // then update it by pushing the object id of the employer 
-                Suggestion.insert({description: req.body.description}, { new: true }, function(error, doc) {
+                db.findOneAndUpdate({ '_id': req.body.user }, { $push: { 'suggestion': doc._id } }, { new: true }, function(error, doc) {
                     // log any errors
                     if (err) {
                         console.log(err);
@@ -101,18 +102,16 @@ module.exports = function (app) {
             }
 
         }); 
-    })
+    });
 
-    // Route to display suggestions of different users on forum page
-
-    app.get('/suggestionslist', function(req, res) {
+    app.get('/usersuggestion', function(req, res) {
         Suggestion.find({}, function(error, doc) {
             if(error) {
                 res.send(error);
             }
             else {
+                res.send(doc);
                 console.log(doc);
-                res.json(doc);
             }
         });
     });

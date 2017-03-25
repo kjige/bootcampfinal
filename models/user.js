@@ -11,7 +11,11 @@ var User = new Schema({
     employer: {
         type: Schema.Types.ObjectId,
         ref: 'Employer'
-    }
+    },
+    suggestion: [{
+        type: Schema.Types.ObjectId,
+        ref: 'suggestion'
+    }]
 });
 
 User.plugin(passportLocalMongoose);
