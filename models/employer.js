@@ -29,11 +29,7 @@ const EmployerSchema = new Schema({
         type: String,
         trim: true,
         required: true
-    },
-    suggestion: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Suggestion'
-    }] 
+    }
 });
 
 // create the 'Employer' model with our Schema class/constructor

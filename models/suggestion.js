@@ -7,24 +7,10 @@ var mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // instantiate Employer object with the structure of data and its rules
 const SuggestionSchema = new Schema({
-    name: {
+    suggestion: {
         type: String,
-        trim: true,
-        required: true,
-        value: 'test'
-    },
-    company: {
-        type: String,
-        trim: true,
-        required: true,
-        value: 'test'
-    },
-    description: {
-        type: String,
-        trim: true,
-        required: true,
-        value: 'test'
-    } 
+        trim: true
+    }
 });
 
 // create the 'Employer' model with our Schema class/constructor
