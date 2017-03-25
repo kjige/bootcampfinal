@@ -15,18 +15,25 @@ class SuggestionComponent extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/usersuggestion').then(function(response) {
+    axios.get('/usersuggestion').then((response)=>{
       console.log(response);
-      response.data.map((item)=>{
-        this.suggestion.push(item);
-      })
+      this.setState({
+        suggestions: response.data
+      });
     });
   }
+
   render() {
     
     return (
         <div className="box">
-          <EachSuggestion user={} suggestion={this.state.suggestion} />
+          {this.state.suggestions.map((item,i)=>{
+            return (
+              <div key={i}>
+                <EachSuggestion user={this.props.user} suggestion={item.suggestion} />
+              </div>
+            )
+          })}
         </div>
     );
   }
