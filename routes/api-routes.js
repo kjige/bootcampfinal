@@ -78,28 +78,42 @@ module.exports = function (app) {
         }); 
     });
     // suggestion box
-    // app.post('/suggestion', function (req, res) {
-    //     var newSuggestion = new Suggestion('test');
+    app.post('/suggestion', function (req, res) {
+        var newSuggestion = new Suggestion(req.body);
 
-    //     // save the new employer in the employers collection
-    //     newSuggestion.save(function(err, doc) {
-    //         if (err) {
-    //             res.send(err);
-    //         } else {
-    //             // Find one user in our user collection
-    //             // then update it by pushing the object id of the employer 
-    //             Employer.findOneAndUpdate({}, { $push: { 'employer': doc._id } }, { new: true }, function(error, doc) {
-    //                 // log any errors
-    //                 if (err) {
-    //                     console.log(err);
-    //                 } else {
-    //                     // or send the doc to the browser
-    //                     res.json(doc);
-    //                 }
-    //             });
+        // save the new employer in the employers collection
+        newSuggestion.save(function(err, doc) {
+            if (err) {
+                res.send(err);
+            } else {
+                // Find one user in our user collection
+                // then update it by pushing the object id of the employer 
+                Suggestion.insert({description: req.body.description}, { new: true }, function(error, doc) {
+                    // log any errors
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        // or send the doc to the browser
+                        res.json(doc);
+                    }
+                });
                 
-    //         }
+            }
 
-    //     }); 
-    // })
+        }); 
+    })
+
+    // Route to display suggestions of different users on forum page
+
+    app.get('/suggestionslist', function(req, res) {
+        Suggestion.find({}, function(error, doc) {
+            if(error) {
+                res.send(error);
+            }
+            else {
+                console.log(doc);
+                res.json(doc);
+            }
+        });
+    });
 }
