@@ -1,6 +1,22 @@
 import * as React from 'react';
+import * as axios from 'axios';
 
 class SuggestionComponent extends React.Component {
+
+  componentWillMount() {
+    // getUserId() =>
+    var userId = sessionStorage.getItem('userId');
+      console.log('userId', userId);
+      this.setState({
+        user: userId
+      })
+  }
+
+  componentDidMount() {
+    axios.get('/usersuggestion').then(function(response) {
+      console.log(response);
+    });
+  }
   render() {
     return (
         <div className="box">

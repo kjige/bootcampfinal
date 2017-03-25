@@ -95,7 +95,7 @@ module.exports = function (app) {
         }); 
     });
 
-    app.get('/usersuggestions', function(req, res) {
+    app.get('/usersuggestion', function(req, res) {
         Suggestion.find({}, function(error, doc) {
             if(error) {
                 res.send(error);
