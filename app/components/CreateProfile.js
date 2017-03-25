@@ -16,7 +16,7 @@ class CreateProfile extends React.Component {
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
                    <li>
-                        <a href='#/createprofile'>As whom you want to sign up ??</a>
+                        <a>Profile Type</a>
                     </li>
                     <li>
                         <a href='#freelancer'>Freelancer</a>
