@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
+import {EachSuggestion} from './grandchildren/EachSuggestion';
 
 class SuggestionComponent extends React.Component {
 
@@ -8,30 +9,25 @@ class SuggestionComponent extends React.Component {
     var userId = sessionStorage.getItem('userId');
       console.log('userId', userId);
       this.setState({
-        user: userId
+        user: userId,
+        suggestions: []
       })
   }
 
   componentDidMount() {
     axios.get('/usersuggestion').then(function(response) {
       console.log(response);
+      response.data.map((item)=>{
+        this.suggestion.push(item);
+      })
     });
   }
   render() {
     
     return (
         <div className="box">
-  
-     <p>Suggestion Component</p>
-             
-  <img
-  src="http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg"
-  className="img-circle"
-  alt="Cinque Terre"
-  width="50"
-  height="50" /> 
-<h2>User</h2>
-      </div>
+          <EachSuggestion user={} suggestion={this.state.suggestion} />
+        </div>
     );
   }
 }
