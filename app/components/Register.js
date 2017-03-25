@@ -4,9 +4,8 @@ import * as axios from 'axios';
 class Register extends React.Component{
   componentWillMount(){
     this.initializeState();
-    var userId = sessionStorage.getItem('userId');
-    console.log('USERID', userId);
-    this.checkId(userId);
+    // var userId = sessionStorage.getItem('userId');
+    // this.checkId(userId);
   }
 
   initializeState() {
@@ -16,13 +15,13 @@ class Register extends React.Component{
     });
   }
 
-  checkId(userId) {
-    if (userId) {
-      axios.post('findId', {'userId': userId}).then((res)=>{
-        if (res) this.context.router.push('/home');
-      })
-    }
-  }
+  // checkId(userId) {
+  //   if (userId) {
+  //     axios.post('findId', {'userId': userId}).then((res)=>{
+  //       if (res) this.context.router.push('/home');
+  //     })
+  //   }
+  // }
 
   handleSubmit(event) {
     event.preventDefault();
