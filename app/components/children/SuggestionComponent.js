@@ -26,7 +26,7 @@ class SuggestionComponent extends React.Component {
     
     return (
         <div className="box">
-          <EachSuggestion user={} suggestion={this.state.suggestion} />
+          <EachSuggestion user={this.state.userId} suggestion={this.state.suggestion} />
         </div>
     );
   }
