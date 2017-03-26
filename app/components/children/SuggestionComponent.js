@@ -18,7 +18,7 @@ class SuggestionComponent extends React.Component {
     axios.get('/usersuggestion').then(function(response) {
       console.log(response);
       response.data.map((item)=>{
-        this.suggestion.push(item);
+        this.state.suggestions.push(item);
       })
     });
   }
