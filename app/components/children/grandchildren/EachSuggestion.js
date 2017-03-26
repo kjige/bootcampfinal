@@ -16,11 +16,12 @@ class EachSuggestion extends React.Component {
         alt="Cinque Terre"
         width="50"
         height="50" /> 
-
+        <div>
         <h2>{this.props.user}</h2>
         <ul>
           {suggestionList}
         </ul>
+        </div>
       </div>
     )
   }

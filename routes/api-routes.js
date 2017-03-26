@@ -103,7 +103,32 @@ module.exports = function (app) {
 
         }); 
     });
+// freelancer post
+    app.post('/freelancer', function (req, res) {
+        var newFreelancer = new Freelancer(req.body);
 
+        // save the new employer in the employers collection
+        newFreelancer.save(function(err, doc) {
+            if (err) {
+                res.send(err);
+            } else {
+                // Find one user in our user collection
+                // then update it by pushing the object id of the employer 
+                db.findOneAndUpdate({ '_id': req.body.user }, { $push: { 'freelancer': doc._id } }, { new: true }, function(error, doc) {
+                    // log any errors
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        // or send the doc to the browser
+                        res.json(doc);
+                    }
+                });
+                
+            }
+
+        }); 
+    });
+// get suggestions from user collections and populate suggestions collections to display on forum page
      app.get('/usersuggestion', function(req, res) {
         db.find({}).populate('suggestion').exec(function(error, doc) {
             if(error) {
