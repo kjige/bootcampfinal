@@ -2,19 +2,19 @@ import * as React from 'react';
 import * as axios from 'axios';
 
 class Home extends React.Component {
-  // componentWillMount(){
-  //   var userId = sessionStorage.getItem('userId');
-  //   console.log('USERID', userId);
-  //   this.checkId(userId);
-  // }
+  componentWillMount(){
+    var userId = sessionStorage.getItem('userId');
+    console.log('USERID', userId);
+    this.checkId(userId);
+  }
 
-  // checkId(userId) {
-  //   if (userId) {
-  //     axios.post('findId', {'userId': userId}).then((res)=>{
-  //       if (res) this.context.router.push('/dash');
-  //     })
-  //   }
-  // }
+  checkId(userId) {
+    if (userId) {
+      axios.post('findId', {'userId': userId}).then((res)=>{
+        if (res) this.context.router.push('/dash/home');
+      })
+    }
+  }
 
   render() {
     return (

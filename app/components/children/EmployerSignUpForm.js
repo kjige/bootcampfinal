@@ -45,70 +45,85 @@ class EmployerSignUpForm extends React.Component {
   
   render() {
     return (
-        <div className="box">
+      <div className="box">
+      <div className='col-xs-8 col-xs-offset-2'>
+        <form onSubmit={(event) => this.saveNewPost(event)} >
+          <div className='form-row col-xs-6'>
+            <input
+            id='user'
+            type='hidden'
+            value={this.state.user} />
+            <label 
+            htmlFor='name'>Name</label><br/>
+            <input 
+            id='name' 
+            type='text'
+            className='form-control' 
+            onChange={(event) => this.updateInput(event)}
+            value={this.state.name}
+            required />
+          </div>
 
-      <form onSubmit={(event) => this.saveNewPost(event)} >
-        <div className='form-row'>
-          <input
-          id='user'
-          type='hidden'
-          value={this.state.user} />
-          <label 
-          htmlFor='name'>Name:</label><br/>
-          <input 
-          id='name' 
-          type='text' 
-          onChange={(event) => this.updateInput(event)}
-          value={this.state.name}
-          required />
+          <div className='form-row col-xs-6'>
+            <label 
+            htmlFor='company'>Company</label><br/>
+            <input 
+            id='company' 
+            type='text'
+            className='form-control'
+            onChange={(event) => this.updateInput(event)}
+            value={this.state.company} 
+            required />
+          </div>
+          <div className='form-row col-xs-6'>
+            <br/>
+            <label htmlFor='field_needed'>Field_needed</label><br/>
+            <input 
+            id='field_needed' 
+            type='text'
+            className='form-control'
+            onChange={(event) => this.updateInput(event)}
+            value={this.state.field_needed} 
+            required />
+          </div>
 
-        </div>
-        <div className='form-row'>
-          <label 
-          htmlFor='company'>Company:</label><br/>
-          <input 
-          id='company' 
-          type='text'
-          onChange={(event) => this.updateInput(event)}
-          value={this.state.company} 
-          required />
-        </div>
-        <div className='form-row'>
-          <label htmlFor='field_needed'>Field_needed:</label><br/>
-          <input 
-          id='field_needed' 
-          type='text'
-          onChange={(event) => this.updateInput(event)}
-          value={this.state.field_needed} 
-          required />
-        </div>
-        <div className='form-row'>
-          <label htmlFor='image'>Image:</label><br/>
-          <input 
-          id='image' 
-          type='text'
-          onChange={(event) => this.updateInput(event)}
-          value={this.state.image} 
-          required />
-        </div>
-        <div className='form-row'>
-          <label htmlFor='description'>Description:</label><br/>
-          <input 
-          id='description' 
-          type='text'
-          onChange={(event) => this.updateInput(event)}
-          value={this.state.description} 
-          required />
-        </div>
-        <div className='form-row'>
-          <button
-            type='submit'
-            className='btn btn-sm btn-info'>
-            employer Signup
-          </button>
-        </div>
-      </form>
+          <div className='form-row col-xs-6'>
+            <br/>
+            <label htmlFor='image'>Image</label><br/>
+            <input 
+            id='image' 
+            type='text'
+            className='form-control'
+            onChange={(event) => this.updateInput(event)}
+            value={this.state.image} 
+            required />
+          </div>
+
+          <div className='form-row col-xs-6'>
+            <br/>
+            <label htmlFor='description'>Description:</label><br/>
+            <input 
+            id='description' 
+            type='text'
+            className='form-control'
+            onChange={(event) => this.updateInput(event)}
+            value={this.state.description} 
+            required />
+          </div>
+
+          <div>
+            <div className='form-row col-xs-12'>
+            <br/>
+              <button
+                type='submit'
+                className='btn btn-sm btn-info'>
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
+    </div>
     );
   }
 }
