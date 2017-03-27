@@ -56,6 +56,7 @@ class Home extends React.Component {
                   company={item.company} 
                   fieldNeeded={item.field_needed} 
                   description={item.description}
+                  image={item.image}
                   />
                 </div>
               )
