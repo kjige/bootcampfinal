@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import { Button } from 'antd';
 import * as axios from 'axios';
 
 import { helpers } from '../utils/helpers';
@@ -28,29 +27,27 @@ class EmployerSignUpForm extends React.Component {
 
   updateInput(event) {
     const newState = {};
-
     newState[event.target.id] = event.target.value;
     this.setState(newState);
   }
   
 
-  saveNewPost(data) {
-    axios.post('/employer', data).then((data) => {
-            console.log('success', data);
+  saveNewPost(event) {
+    event.preventDefault();
+    axios.post('/employer', this.state).then((res) => {
+            console.log('success', res);
 
         })
         .catch((error) => {
             console.log('error', error);
         });
-        console.log('employer profile submitted', data);
-    
   }
   
   render() {
     return (
         <div className="box">
 
-      <form onSubmit={() => this.saveNewPost(this.state)} >
+      <form onSubmit={(event) => this.saveNewPost(event)} >
         <div className='form-row'>
           <input
           id='user'
@@ -105,7 +102,8 @@ class EmployerSignUpForm extends React.Component {
         </div>
         <div className='form-row'>
           <button
-            type='submit'>
+            type='submit'
+            className='btn btn-sm btn-info'>
             employer Signup
           </button>
         </div>

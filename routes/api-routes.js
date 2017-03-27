@@ -115,4 +115,17 @@ module.exports = function (app) {
             }
         });
     });
+
+    app.post('/freelancer', function(req, res) {
+        var newFreelancer = new Freelancer(req.body);
+        newFreelancer.save(function(error, doc) {
+            if(error) {
+                res.send(error);
+            }
+            else {
+                res.send(doc);
+                console.log(doc);
+            }
+        });
+    });
 }
