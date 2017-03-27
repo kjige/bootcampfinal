@@ -7,7 +7,6 @@ import * as axios from 'axios';
 class Dash extends React.Component{
   componentWillMount(){
     var userId = sessionStorage.getItem('userId');
-    console.log('USERID', userId);
     this.checkId(userId);
   }
 

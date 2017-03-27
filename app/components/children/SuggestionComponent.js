@@ -7,7 +7,6 @@ class SuggestionComponent extends React.Component {
   componentWillMount() {
     // getUserId() =>
     var userId = sessionStorage.getItem('userId');
-      console.log('userId', userId);
       this.setState({
         user: userId,
         suggestions: []
