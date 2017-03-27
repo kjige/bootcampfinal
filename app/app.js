@@ -32,6 +32,7 @@ const router = (
         </Route>
 
         <Route path='/dash' component={Dash} >
+            <Route path='home' component={Home} />
             <Route path='forum' component={Forum} />
             <Route path='createprofile' component={CreateProfile}>
                 <Route path='/freelancer' component={FreelancerSignUpForm} />
