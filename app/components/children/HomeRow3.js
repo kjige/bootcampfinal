@@ -19,7 +19,7 @@ class HomeRow3 extends React.Component {
                     <EachProjectOwner />
                     <EachProjectOwner />
                     <EachProjectOwner />
-                    <a href=''>More...</a>
+                    <a href='#/dash/employerprofile'>More...</a>
                 </div>
             </div>
           </div>
