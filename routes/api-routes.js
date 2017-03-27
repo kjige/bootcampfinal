@@ -55,7 +55,6 @@ module.exports = function (app) {
         console.log(req.body);
         // create a new employer profile and pass the req.body to the entry
         var newEmployer = new Employer(req.body);
-        
 
         // save the new employer in the employers collection
         newEmployer.save(function(err, doc) {
@@ -78,6 +77,7 @@ module.exports = function (app) {
 
         }); 
     });
+
     // suggestion box
     app.post('/suggestion', function (req, res) {
         var newSuggestion = new Suggestion(req.body);
@@ -119,6 +119,18 @@ module.exports = function (app) {
     app.post('/freelancer', function(req, res) {
         var newFreelancer = new Freelancer(req.body);
         newFreelancer.save(function(error, doc) {
+            if(error) {
+                res.send(error);
+            }
+            else {
+                res.send(doc);
+                console.log(doc);
+            }
+        });
+    });
+
+    app.get('/employers', function(req, res) {
+        Employer.find({}, function(error, doc) {
             if(error) {
                 res.send(error);
             }
