@@ -1,6 +1,11 @@
 import * as React from 'react';
 import * as axios from 'axios';
 
+import { HomeRow1 } from './children/HomeRow1';
+import { HomeRow2 } from './children/HomeRow2';
+import { HomeRow3 } from './children/HomeRow3';
+
+
 class Home extends React.Component {
   // componentWillMount(){
   //   var userId = sessionStorage.getItem('userId');
@@ -19,10 +24,9 @@ class Home extends React.Component {
   render() {
     return (
       <div className='container'>
-          <div className="row">
-              <div className="box">Home
-              </div>
-          </div>
+          <HomeRow1 />
+          <HomeRow2 />
+          <HomeRow3 />
       </div>
     );
 
