@@ -1,33 +1,45 @@
 import * as React from 'react';
-// import { Button } from 'antd';
+import * as axios from 'axios';
 
 class FreelancerSignUpForm extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = { 
+      name: '',
+      field: 'Legal',
+      experience: '' };
+  }
 
   // Event handler for the input values
   updateInput(event) {
     const newState = {};
     newState[event.target.id] = event.target.value;
     this.setState(newState);
+    console.log(newState);
   }
 
   handleUpdateField(newVal) {
     this.setState({
-      category: newVal
+      field: newVal
     });
   }
 
-  // Initial State
-  initializeState() {
-    this.setState({
-      name: '',
-      field: '',
-      experience: ''
+  saveNewFreelancer(event) {
+    event.preventDefault();
+    console.log(this.state);
+    axios.post('/freelancer', this.state).then((data) => {
+      console.log('success', data);
+    })
+    .catch((error) => {
+      console.log('error', error);
     });
   }
+
   render() {
     return (
     <div className="box">
-      <form>
+      <form onSubmit={(event) => this.saveNewFreelancer(event)} >
         <div className='form-row col-lg-6'>
           {/*<div className="form-group">*/}
               <label htmlFor='name'>Name</label>
@@ -35,17 +47,19 @@ class FreelancerSignUpForm extends React.Component {
               id='name'
               type="text"
               className="form-control"
+              value={this.state.name}
               onChange={(event) => this.updateInput(event)} />
           {/*</div>*/}
         </div>
 
-        <div className='form-row'>
+        <div className='form-row col-lg-6'>
             <label htmlFor='field'>Field</label><br/>
             <select
               id='field'
               className="form-control"
               style={{ width: 120 }}
-              onChange={(newVal) => this.handleUpdateField(newVal)}
+              value={this.state.field}
+              onChange={(event) => this.updateInput(event)}
             >
               <option value="Legal">Legal</option>
               <option value="Finance">Finance</option>
@@ -57,25 +71,20 @@ class FreelancerSignUpForm extends React.Component {
             </select>
           </div>
 
-        {/*<div className='form-row col-lg-6'>
-              <label htmlFor='field'>Field</label>
-              <input
-              id='field'
-              type="text"
-              className="form-control"
-              onChange={(event) => this.updateInput(event)} />
-        </div>*/}
         <div className='form-row col-lg-6'>
               <label htmlFor='experience'>Experience</label>
               <input
               id='experience'
               type="text"
+              value={this.state.experience}
               className="form-control"
               onChange={(event) => this.updateInput(event)} />
         </div>
-        <div className='form-row'>
+        <br/>
+        <div className='form-row col-lg-6'>
           <button
             type='submit'
+            className='btn btn-sm btn-info'
           >
             Freelancer Signup
           </button>
