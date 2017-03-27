@@ -16,7 +16,6 @@ class FreelancerSignUpForm extends React.Component {
     const newState = {};
     newState[event.target.id] = event.target.value;
     this.setState(newState);
-    console.log(newState);
   }
 
   handleUpdateField(newVal) {
@@ -27,7 +26,6 @@ class FreelancerSignUpForm extends React.Component {
 
   saveNewFreelancer(event) {
     event.preventDefault();
-    console.log(this.state);
     axios.post('/freelancer', this.state).then((data) => {
       console.log('success', data);
     })
