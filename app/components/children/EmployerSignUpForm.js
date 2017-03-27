@@ -4,19 +4,29 @@ import * as axios from 'axios';
 import { helpers } from '../utils/helpers';
 
 class EmployerSignUpForm extends React.Component {
-
-  initializeState() {
-    this.setState({
+  
+  constructor(props) {
+    super(props);
+    this.state = { 
       name: '',
       company: '',
-      field_needed: '',
-      image: '',
+      field_needed: 'Legal',
       description: ''
-    });
+    };
   }
 
+  // initializeState() {
+  //   this.setState({
+  //     name: '',
+  //     company: '',
+  //     field_needed: '',
+  //     image: '',
+  //     description: ''
+  //   });
+  // }
+
   componentWillMount() {
-    this.initializeState();
+    // this.initializeState();
     // getUserId() =>
     var userId = sessionStorage.getItem('userId');
       console.log('userId', userId);
@@ -46,81 +56,90 @@ class EmployerSignUpForm extends React.Component {
   render() {
     return (
       <div className="box">
-      <div className='col-xs-8 col-xs-offset-2'>
-        <form onSubmit={(event) => this.saveNewPost(event)} >
-          <div className='form-row col-xs-6'>
-            <input
-            id='user'
-            type='hidden'
-            value={this.state.user} />
-            <label 
-            htmlFor='name'>Name</label><br/>
-            <input 
-            id='name' 
-            type='text'
-            className='form-control' 
-            onChange={(event) => this.updateInput(event)}
-            value={this.state.name}
-            required />
-          </div>
+        <div className='col-xs-8 col-xs-offset-2'>
+          <form onSubmit={(event) => this.saveNewPost(event)} >
+            <div className='form-row col-xs-6'>
+              <input
+              id='user'
+              type='hidden'
+              value={this.state.user} />
+              <label 
+              htmlFor='name'>Name</label><br/>
+              <input 
+              id='name' 
+              type='text'
+              className='form-control' 
+              onChange={(event) => this.updateInput(event)}
+              value={this.state.name}
+              required />
+            </div>
 
-          <div className='form-row col-xs-6'>
-            <label 
-            htmlFor='company'>Company</label><br/>
-            <input 
-            id='company' 
-            type='text'
-            className='form-control'
-            onChange={(event) => this.updateInput(event)}
-            value={this.state.company} 
-            required />
-          </div>
-          <div className='form-row col-xs-6'>
-            <br/>
-            <label htmlFor='field_needed'>Field_needed</label><br/>
-            <input 
-            id='field_needed' 
-            type='text'
-            className='form-control'
-            onChange={(event) => this.updateInput(event)}
-            value={this.state.field_needed} 
-            required />
-          </div>
+            <div className='form-row col-xs-6'>
+              <label 
+              htmlFor='company'>Company</label><br/>
+              <input 
+              id='company' 
+              type='text'
+              className='form-control'
+              onChange={(event) => this.updateInput(event)}
+              value={this.state.company} 
+              required />
+            </div>
 
-          <div className='form-row col-xs-6'>
-            <br/>
-            <label htmlFor='image'>Image</label><br/>
-            <input 
-            id='image' 
-            type='text'
-            className='form-control'
-            onChange={(event) => this.updateInput(event)}
-            value={this.state.image} 
-            required />
-          </div>
+            <div className='form-row col-xs-6'>
+              <br/>
+              <label htmlFor='field_needed'>Field Needed</label><br/>
+              <select
+              id='field_needed' 
+              className='form-control'
+              value={this.state.field_needed} 
+              onChange={(event) => this.updateInput(event)}
+              >
+                <option value="Legal">Legal</option>
+                <option value="Finance">Finance</option>
+                <option value="Food">Food</option>
+                <option value="Logistic">Logistic</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Contractor">Contractor</option>              
+                <option value="Other-services">Other services</option>
+              </select>
+            </div>
+            
+            <div className='form-row col-xs-6'>
+              <br/>
+              <label htmlFor='image'>Image</label><br/>
+              <input 
+              id='image' 
+              type='text'
+              className='form-control'
+              onChange={(event) => this.updateInput(event)}
+              value={this.state.image} 
+              required />
+            </div>
 
-          <div className='form-row col-xs-6'>
-            <br/>
-            <label htmlFor='description'>Description:</label><br/>
-            <input 
-            id='description' 
-            type='text'
-            className='form-control'
-            onChange={(event) => this.updateInput(event)}
-            value={this.state.description} 
-            required />
-          </div>
+            <div className='form-row col-xs-6'>
+              <br/>
+              <label htmlFor='description'>Description</label><br/>
+              <input 
+              id='description' 
+              type='text'
+              className='form-control'
+              onChange={(event) => this.updateInput(event)}
+              value={this.state.description} 
+              required />
+            </div>
 
-          <div>
-            <div className='form-row col-xs-12'>
-            <br/>
+            <div>
+              <div className='form-row col-xs-12'>
+              <br/>
               <button
                 type='submit'
                 className='btn btn-sm btn-info'>
                 Submit
               </button>
+              </div>
             </div>
-          </div>
+        
         </form>
       </div>
     </div>
