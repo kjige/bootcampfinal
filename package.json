@@ -25,6 +25,8 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
     "express-session": "^1.15.1",
+    "flip": "^1.0.0",
+    "flip-js": "0.0.4",
     "method-override": "^2.3.7",
     "mongoose": "^4.9.0",
     "passport": "^0.3.2",
