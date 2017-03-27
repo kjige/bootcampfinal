@@ -6,6 +6,21 @@ import { SuggestionComponent } from './children/SuggestionComponent';
 import * as axios from 'axios';
 
 class Forum extends React.Component {
+  
+  componentWillMount(){
+    var userId = sessionStorage.getItem('userId');
+    console.log('USERID', userId);
+    this.checkId(userId);
+  }
+
+  checkId(userId) {
+    if (userId) {
+      axios.post('findId', {'userId': userId}).then((res)=>{
+        if (res) this.context.router.push('/dash');
+      })
+    }
+  }
+
   render() {
     return (
       <div className='container'>
@@ -33,5 +48,8 @@ class Forum extends React.Component {
   }
 }
 
-export { Forum };
+Forum.contextTypes = {
+  router: React.PropTypes.any
+};
 
+export { Forum };

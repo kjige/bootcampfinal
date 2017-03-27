@@ -29,7 +29,7 @@ class Header2 extends React.Component{
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav">
                     <li>
-                        <a href='#/home'>Home</a>
+                        <a href='#/dash/home'>Home</a>
                     </li>
                     <li>
                         <a href='#/dash/forum'>Forum</a>
