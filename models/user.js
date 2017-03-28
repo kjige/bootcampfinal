@@ -4,14 +4,15 @@ var mongoose = require('mongoose'),
 
 // passportLocalMongoose automatically assigns username, hash, salt
 var User = new Schema({
-    freelancer: {
+
+    freelancer: [{
         type: Schema.Types.ObjectId,
         ref: 'Freelancer'
-    },
-    employer: {
+    }],
+    employer: [{
         type: Schema.Types.ObjectId,
         ref: 'Employer'
-    },
+    }],
     suggestion: [{
         type: Schema.Types.ObjectId,
         ref: 'Suggestion'
