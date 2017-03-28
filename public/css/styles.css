@@ -85,7 +85,18 @@ body {
     -o-border-image: url(../img/border.jpg) 30 round; /* Opera 11-12.1 */
     border-image: url(../img/border.jpg) 30 round;
 }
+
+.ReactFlipCard,
+  .ReactFlipCard__Front,
+  .ReactFlipCard__Back {
+    box-sizing: border-box;
+    width: 100%;
+    height: 150px;
+    align-items: center;
+  }
+
 .username-info{
   float: right;
   color: red;
 }
+
