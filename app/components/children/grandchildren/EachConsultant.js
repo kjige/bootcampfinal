@@ -38,20 +38,20 @@ class EachConsultant extends React.Component {
   
   render() {
       return (
-        <div className="col-lg-3 center-block">
+        <div className="col-lg-3">
           <FlipCard type='vertical'>
-            <div>
+            <div className='col-xs-12 text-center border-img'>
               <img
               width="200"
               height="400"
-              className="img-responsive img-left img-circle border-img"
+              className="img-responsive img-circle center-block"
               src="http://placehold.it/350x150"
               alt="" />
               <h4>{this.props.name}</h4>
             </div>
-            <div className='align-bottom'>
-              <h6>Expertise: {this.props.field}</h6>
-              <h6>Years of experience: {this.props.experience}</h6>
+            <div className='text-center border-img background'>
+              <h5><strong>Expertise:</strong></h5><h6>{this.props.field}</h6>
+              <h5><strong>Years of experience:</strong></h5><h6>{this.props.experience}</h6>
             </div>
           </FlipCard>
         </div>

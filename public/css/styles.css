@@ -100,3 +100,14 @@ body {
   color: red;
 }
 
+.background {
+  padding: 11px 0px;
+  background: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+.background2 {
+  padding: 25px 0px;
+  background: #fff;
+  background: rgba(255,255,255,0.1);
+}

@@ -28,31 +28,33 @@ class HomeRow3 extends React.Component {
   render() {
     return (
     <div className="row">
-              <div className="box">
-                <div className="col-lg-12">
-                    <hr />
-                    <h2 className="intro-text text-center">Our 
-                        <strong> Project Owners</strong>
-                    </h2>
-                    <hr />
-                {this.state.docs.map((item,i)=>{
-                  if (i<4){
-                    return(
-                        <EachProjectOwner
-                        key={i} 
-                        name={item.name}
-                        field_needed={item.field_needed}
-                        company={item.company}
-                        description={item.description}
-                        />
-                    )
-                  }
-                })}
-                  <br/>
-                  <a href='#/dash/employerprofile'>More...</a>
-                </div>
+        <div className="box">
+          <div className="col-lg-12">
+            <hr />
+            <h2 className="intro-text text-center">Our 
+                <strong> Project Owners</strong>
+            </h2>
+            <hr />
+              {this.state.docs.map((item,i)=>{
+                if (i<4){
+                  return(
+                      <EachProjectOwner
+                      key={i} 
+                      name={item.name}
+                      field_needed={item.field_needed}
+                      company={item.company}
+                      description={item.description}
+                      />
+                  )
+                }
+              })}
+          <div className="col-xs-3">
+            <br/>
+            <a href='#/dash/employerprofile'>More...</a>
+          </div>
             </div>
           </div>
+        </div>
     );
   }
 }
