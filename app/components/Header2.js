@@ -40,9 +40,15 @@ class Header2 extends React.Component{
                     <li>
                         <a onClick={(event)=>{this.handleLogout(event)}}>Logout</a>
                     </li>
+                    {/*<li  className="username-info">    
+                        {this.props.username}    
+                    </li>*/}
                 </ul>
             </div>
             {/*<!-- /.navbar-collapse -->*/}
+        <span  className="username-info">    
+                 Welcome {this.props.username}    
+        </span>
         </div>
         {/*<!-- /.container -->*/}
     </nav>

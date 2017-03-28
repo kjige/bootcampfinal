@@ -5,23 +5,44 @@ import { Header2 } from "./Header2";
 import * as axios from 'axios';
 
 class Dash extends React.Component{
+ 
   componentWillMount(){
     var userId = sessionStorage.getItem('userId');
+    // console.log('USERID', userId);
     this.checkId(userId);
+    this.initializeState();
+  }
+  initializeState() {
+    this.setState({
+      username: ''
+    })
   }
 
   checkId(userId) {
     if (userId) {
       axios.post('findId', {'userId': userId}).then((res)=>{
-        if (!res) this.context.router.push('/login');
+        var username = res.data.username;
+        console.log(username);
+        this.setState({
+        username: res.data.username
       });
+        if (!res) this.context.router.push('/login');
+      })
     }
   }
+
+  // checkId(userId) {
+  //   if (userId) {
+  //     axios.post('findId', {'userId': userId}).then((res)=>{
+  //       if (!res) this.context.router.push('/login');
+  //     });
+  //   }
+  // }
 
   render(){
     return(
       <div>
-        <Header2 />
+        <Header2 username={this.state.username} />
         {/*<div clasesName="main-content">*/}
           {this.props.children}
         {/*</div>*/}

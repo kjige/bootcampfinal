@@ -52,12 +52,15 @@ module.exports = function (app) {
 
     // signup routes
     app.post('/employer', function (req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         // create a new employer profile and pass the req.body to the entry
         var newEmployer = new Employer(req.body);
 
         // save the new employer in the employers collection
         newEmployer.save(function(err, doc) {
+            console.log(err);
+            console.log(doc);
+            
             if (err) {
                 res.send(err);
             } else {
@@ -103,15 +106,40 @@ module.exports = function (app) {
 
         }); 
     });
+// freelancer post
+    app.post('/freelancer', function (req, res) {
+        var newFreelancer = new Freelancer(req.body);
 
-    app.get('/usersuggestion', function(req, res) {
-        Suggestion.find({}, function(error, doc) {
+        // save the new employer in the employers collection
+        newFreelancer.save(function(err, doc) {
+            if (err) {
+                res.send(err);
+            } else {
+                // Find one user in our user collection
+                // then update it by pushing the object id of the employer 
+                db.findOneAndUpdate({ '_id': req.body.user }, { $push: { 'freelancer': doc._id } }, { new: true }, function(error, doc) {
+                    // log any errors
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        // or send the doc to the browser
+                        res.json(doc);
+                    }
+                });
+                
+            }
+
+        }); 
+    });
+// get suggestions from user collections and populate suggestions collections to display on forum page
+     app.get('/usersuggestion', function(req, res) {
+        db.find({}).populate('suggestion').exec(function(error, doc) {
             if(error) {
                 res.send(error);
             }
             else {
                 res.send(doc);
-                console.log(doc);
+                console.log('this is the doc',doc);
             }
         });
     });

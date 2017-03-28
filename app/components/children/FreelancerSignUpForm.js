@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
+// import { notification } from 'antd';
 
 class FreelancerSignUpForm extends React.Component {
   
@@ -77,7 +78,8 @@ class FreelancerSignUpForm extends React.Component {
               type="text"
               value={this.state.experience}
               className="form-control"
-              onChange={(event) => this.updateInput(event)} />
+              onChange={(event) => this.updateInput(event)} 
+              value={this.state.experience}/>
         </div>
 
         <div className='form-row col-xs-12'>

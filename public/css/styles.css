@@ -94,3 +94,9 @@ body {
     height: 150px;
     align-items: center;
   }
+
+.username-info{
+  float: right;
+  color: red;
+}
+

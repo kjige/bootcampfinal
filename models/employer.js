@@ -18,7 +18,7 @@ const EmployerSchema = new Schema({
         required: true
     },
     field_needed: {
-        type: String,
+        type: Array,
         trim: true,
         required: true
     },
