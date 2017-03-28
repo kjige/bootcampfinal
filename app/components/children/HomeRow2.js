@@ -21,7 +21,7 @@ class HomeRow2 extends React.Component {
                     <EachConsultant />
                     <EachConsultant />
                     <EachConsultant />
-                    <a href=''>  More... </a>
+                    <a href='#/dash/freelancerprofile'>  More... </a>
                     
                      </div>
             </div>

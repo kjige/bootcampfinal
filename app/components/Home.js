@@ -44,10 +44,10 @@ class Home extends React.Component {
 
     return (
       <div className='container'>
-
+{/*
         <div className="row">
-          <div className="box">
-            {this.state.docs.map((item,i)=>{
+          <div className="box">*/}
+            {/*{this.state.docs.map((item,i)=>{
               console.log(item);
               return (
                 <div key={i} className='col-xs-3'>
@@ -60,9 +60,9 @@ class Home extends React.Component {
                   />
                 </div>
               )
-            })}
-              </div>
-          </div>
+            })}*/}
+            {/*</div>
+          </div>*/}
 
           <HomeRow1 />
           <HomeRow2 />
