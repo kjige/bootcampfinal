@@ -11,15 +11,25 @@ class Login extends React.Component{
 
   componentWillMount() {
     this.initializeState();
+    // var userId = sessionStorage.getItem('userId');
+    // this.checkId(userId);
   }
+
+  // checkId(userId) {
+  //   if (userId) {
+  //     axios.post('findId', {'userId': userId}).then((res)=>{
+  //       if (res) this.context.router.push('/home');
+  //     })
+  //   }
+  // }
 
   handleSubmit(event) {
     event.preventDefault();
     axios.post("/login", this.state).then((res)=>{
       if(res.data.username===this.state.username) {
-        this.context.router.push('/home');
+        sessionStorage.setItem('userId', res.data._id);
+        this.context.router.push('/dash');
       }
-    
     }).catch((error)=>{
       console.log('error', error);
     });
