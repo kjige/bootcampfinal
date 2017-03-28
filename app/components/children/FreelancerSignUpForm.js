@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
+// import { notification } from 'antd';
 
 class FreelancerSignUpForm extends React.Component {
   
