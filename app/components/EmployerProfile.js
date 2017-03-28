@@ -7,7 +7,7 @@ class EmployerProfile extends React.Component {
   componentWillMount(){
     this.initializeState();
     var userId = sessionStorage.getItem('userId');
-    console.log('USERID', userId);
+    // console.log('USERID', userId);
     this.checkId(userId);
     this.getJobs();
   }
@@ -28,7 +28,7 @@ class EmployerProfile extends React.Component {
 
   getJobs() {
     axios.get('/employers').then((res)=> {
-      console.log('EMPS', res);
+      // console.log('EMPS', res);
       this.setState({
         docs: res.data
       });
@@ -48,7 +48,7 @@ class EmployerProfile extends React.Component {
                     </h2>
                     <hr />
             {this.state.docs.map((item,i)=>{
-              console.log(item);
+              {/*console.log(item);*/}
               return (
                 <div key={i} className='col-xs-3'>
                   <EachEmployer 

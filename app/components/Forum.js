@@ -15,7 +15,7 @@ class Forum extends React.Component {
   checkId(userId) {
     if (userId) {
       axios.post('findId', {'userId': userId}).then((res)=>{
-        if (res) this.context.router.push('/dash');
+        if (res) this.context.router.push('/dash/forum');
       })
     }
   }

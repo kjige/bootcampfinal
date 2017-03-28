@@ -3,9 +3,7 @@ import * as React from 'react';
 class EachSuggestion extends React.Component {
   render() {
     return(
-      <div>
-        <p>Suggestion Component</p>
-             
+      <div>    
         <img
         src="http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg"
         className="img-circle"
