@@ -24,9 +24,15 @@ class SuggestionComponent extends React.Component {
   }
 
   render() {
-    var suggestionItem = this.state.suggestions.map((item, index) => {
+    let suggestionItem = this.state.suggestions.map((item, index) => {
+        let image;
+        if (item.employer[0] === undefined) {
+          image = item.freelancer[0].image;
+        } else if (item.freelancer[0] === undefined) {
+          image = 'http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg';
+        }
       return (
-        <EachSuggestion user={item.username} key={item._id} suggestion={item.suggestion[0].suggestion} />
+        <EachSuggestion user={item.username} key={item._id} suggestion={item.suggestion} image={image} />
       )
     });
     return (

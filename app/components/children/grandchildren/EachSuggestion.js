@@ -3,13 +3,13 @@ import * as React from 'react';
 class EachSuggestion extends React.Component {
   render() {
     var suggestionList = this.props.suggestion.map((item, index) => {
-      return (<li key={index}>{item}</li>);
+      return (<li key={index}>{item.suggestion[0]}</li>);
       console.log('sug list', {item});
     }); 
     return(
       <div>    
         <img
-        src="http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg"
+        src={this.props.image}
         className="img-circle"
         alt="Cinque Terre"
         width="50"

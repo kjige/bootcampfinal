@@ -28,6 +28,7 @@ class Home extends React.Component {
 //     })
 //   }
 
+
   checkId(userId) {
     if (userId) {
       axios.post('findId', {'userId': userId}).then((res)=>{

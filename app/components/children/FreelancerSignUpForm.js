@@ -9,9 +9,18 @@ class FreelancerSignUpForm extends React.Component {
     this.state = { 
       name: '',
       field: 'Legal',
-      experience: '' };
+      experience: '',
+      image: 'http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg' };
   }
 
+   componentWillMount() {
+    // getUserId() =>
+    var userId = sessionStorage.getItem('userId');
+    console.log('userId', userId);
+    this.setState({
+      user: userId
+    });
+  }
   // Event handler for the input values
   updateInput(event) {
     const newState = {};
@@ -81,6 +90,18 @@ class FreelancerSignUpForm extends React.Component {
               onChange={(event) => this.updateInput(event)} 
               value={this.state.experience}/>
         </div>
+
+         <div className='form-row col-xs-6'>
+              <br />
+              <label htmlFor='image'>Image</label><br />
+              <input
+                id='image'
+                type='text'
+                className='form-control'
+                onChange={(event) => this.updateInput(event)}
+                value={this.state.image}
+                required />
+            </div>
 
         <div className='form-row col-xs-12'>
           <br/>

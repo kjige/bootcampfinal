@@ -37,7 +37,14 @@ class EmployerSignUpForm extends React.Component {
     });
   }
 
-  updateInput(event) {
+   updateInput(event) {
+    const newState = {};
+
+    newState[event.target.id] = event.target.value;
+    this.setState(newState);
+  }
+
+  updateSelectInput(event) {
     const newState = {};
     let array = event.target.selectedOptions;
     let options = [];
@@ -101,7 +108,7 @@ class EmployerSignUpForm extends React.Component {
                 id='field_needed'
                 className='form-control form-horizontal'
                 value={this.state.field_needed}
-                onChange={(event) => this.updateInput(event)}
+                onChange={(event) => this.updateSelectInput(event)}
                 name="browsers" 
                 multiple
               >
