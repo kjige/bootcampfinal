@@ -7,9 +7,7 @@ class EachSuggestion extends React.Component {
       console.log('sug list', {item});
     }); 
     return(
-      <div>
-        <p>Suggestion Component</p>
-             
+      <div>    
         <img
         src="http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg"
         className="img-circle"

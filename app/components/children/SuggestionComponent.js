@@ -7,12 +7,12 @@ class SuggestionComponent extends React.Component {
   componentWillMount() {
     // getUserId() =>
     var userId = sessionStorage.getItem('userId');
-    console.log('userId', userId);
-    this.setState({
-      user: userId,
-      suggestions: []
-    })
+      this.setState({
+        user: userId,
+        suggestions: []
+      })
   }
+
 
   componentDidMount() {
     axios.get('/usersuggestion').then((response) => {

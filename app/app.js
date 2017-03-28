@@ -17,6 +17,9 @@ import { Register } from "./components/Register";
 import { Contact } from "./components/Contact";
 import { Dash } from "./components/Dash";
 import { Forum } from "./components/Forum";
+import { EmployerProfile } from "./components/EmployerProfile";
+import { FreelancerProfile } from "./components/FreelancerProfile";
+
 
 import * as axios from 'axios';
 
@@ -32,13 +35,16 @@ const router = (
         </Route>
 
         <Route path='/dash' component={Dash} >
+            <Route path='home' component={Home} />
             <Route path='forum' component={Forum} />
+            <Route path='employerprofile' component={EmployerProfile} /> 
+            <Route path='freelancerprofile' component={FreelancerProfile} />           
             <Route path='createprofile' component={CreateProfile}>
                 <Route path='/freelancer' component={FreelancerSignUpForm} />
                 <Route path='/employer' component={EmployerSignUpForm} />
                 <IndexRoute component={FreelancerSignUpForm} />
             </Route>
-            <IndexRoute component={Forum} />
+            <IndexRoute component={Home} />
         </Route>
     </Router>
 );

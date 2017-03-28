@@ -13,7 +13,6 @@ class ForumForm extends React.Component {
     this.initializeState();
     // getUserId() =>
     var userId = sessionStorage.getItem('userId');
-      console.log('userId', userId);
       this.setState({
         user: userId
       })

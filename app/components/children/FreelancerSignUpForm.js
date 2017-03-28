@@ -1,8 +1,15 @@
 import * as React from 'react';
-// import { Button } from 'antd';
 import * as axios from 'axios';
 
 class FreelancerSignUpForm extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = { 
+      name: '',
+      field: 'Legal',
+      experience: '' };
+  }
 
   // Event handler for the input values
   updateInput(event) {
@@ -12,106 +19,81 @@ class FreelancerSignUpForm extends React.Component {
   }
 
   handleUpdateField(newVal) {
-    const newState = {};
-    newState[newVal.target.id] = newVal.target.value;
-    this.setState(newState);
-  }
-
-  // Initial State
-  initializeState() {
     this.setState({
-      name: '',
-      field: '',
-      experience: ''
+      field: newVal
     });
   }
 
-  componentWillMount() {
-    this.initializeState();
-    // getUserId() =>
-    var userId = sessionStorage.getItem('userId');
-      console.log('userId', userId);
-      this.setState({
-        user: userId
-      });
-  }
-
-saveNewPost(data) {
-    axios.post('/freelancer', data).then((data) => {
-            console.log('success', data);
-
-        })
-        .catch((error) => {
-            console.log('error', error);
-        });
-        console.log('freelancer profile submitted', data);
+  saveNewFreelancer(event) {
+    event.preventDefault();
+    axios.post('/freelancer', this.state).then((data) => {
+      console.log('success', data);
+    })
+    .catch((error) => {
+      console.log('error', error);
+    });
   }
 
   render() {
     return (
     <div className="box">
-      <form onSubmit={() => this.saveNewPost(this.state)}>
-        <div className='form-row col-lg-6'>
-          {/*<div className="form-group">*/}
-            <input 
-            id='user'
-            type='hidden'
-            value={this.state.user} />
-              <label htmlFor='name'>Name</label>
-              <input 
-              id='name'
-              type="text"
-              className="form-control"
-              onChange={(event) => this.updateInput(event)} 
-              value={this.state.name} />
-          {/*</div>*/}
-        </div>
-
-        <div className='form-row'>
-            <label htmlFor='field'>Field</label><br/>
-            <select
-              id='field'
-              className="form-control"
-              style={{ width: 120 }}
-              onChange={(newVal) => this.handleUpdateField(newVal)}
-              value={this.state.field}
-            >
-              <option value="Legal">Legal</option>
-              <option value="Finance">Finance</option>
-              <option value="Food">Food</option>
-              <option value="Logistic">Logistic</option>
-              <option value="Transportation">Transportation</option>
-              <option value="Contractor">Contractor</option>              
-              <option value="Other-services">Other services</option>
-            </select>
+      <div className='col-xs-8 col-xs-offset-2'>
+        <form onSubmit={(event) => this.saveNewFreelancer(event)} >
+          <div className='form-row col-xs-6'>
+            {/*<div className="form-group">*/}
+                <label htmlFor='name'>Name</label>
+                <input 
+                id='name'
+                type="text"
+                className="form-control"
+                value={this.state.name}
+                onChange={(event) => this.updateInput(event)} />
+            {/*</div>*/}
           </div>
 
-        {/*<div className='form-row col-lg-6'>
-              <label htmlFor='field'>Field</label>
-              <input
-              id='field'
-              type="text"
-              className="form-control"
-              onChange={(event) => this.updateInput(event)} />
-        </div>*/}
-        <div className='form-row col-lg-6'>
-              <label htmlFor='experience'>Experience</label>
+          <div className='form-row col-xs-3'>
+              <label htmlFor='field'>Field</label><br/>
+              <select
+                id='field'
+                className="form-control"
+                style={{ width: 120 }}
+                value={this.state.field}
+                onChange={(event) => this.updateInput(event)}
+              >
+                <option value="Legal">Legal</option>
+                <option value="Finance">Finance</option>
+                <option value="Food">Food</option>
+                <option value="Logistic">Logistic</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Contractor">Contractor</option>              
+                <option value="Other-services">Other services</option>
+              </select>
+            </div>
+
+        <div className='form-row col-xs-3'>
+              <label htmlFor='experience'>Years of Experience</label>
               <input
               id='experience'
               type="text"
+              value={this.state.experience}
               className="form-control"
               onChange={(event) => this.updateInput(event)} 
               value={this.state.experience}/>
         </div>
-        <div className='form-row'>
+
+        <div className='form-row col-xs-12'>
+          <br/>
           <button
             type='submit'
+            className='btn btn-sm btn-info'
           >
-            Freelancer Signup
+            Submit
           </button>
         </div>
+
       </form>
     </div>
+  </div>
     );
   }
 }
