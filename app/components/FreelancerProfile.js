@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as axios from 'axios';
-import {EachEmployer} from './children/grandchildren/EachEmployer';
+import {EachFreelancerProfile} from './children/grandchildren/EachFreelancerProfile';
 
-class EmployerProfile extends React.Component {
+class FreelancerProfile extends React.Component {
   
   componentWillMount(){
     this.initializeState();
@@ -21,14 +21,14 @@ class EmployerProfile extends React.Component {
   checkId(userId) {
     if (userId) {
       axios.post('findId', {'userId': userId}).then((res)=>{
-        if (res) this.context.router.push('/dash/employerprofile');
+        if (res) this.context.router.push('/dash/freelancerprofile');
       })
     }
   }
 
   getJobs() {
-    axios.get('/employers').then((res)=> {
-      console.log('EMPS', res);
+    axios.get('/freelancers').then((res)=> {
+      console.log('free', res);
       this.setState({
         docs: res.data
       });
@@ -42,8 +42,8 @@ class EmployerProfile extends React.Component {
 
         <div className="row">
           <div className="box">
-               <hr />
-                    <h2 className="intro-text text-center">Employers
+                <hr />
+                    <h2 className="intro-text text-center">Consultants 
                         <strong> Profile </strong>
                     </h2>
                     <hr />
@@ -51,12 +51,10 @@ class EmployerProfile extends React.Component {
               console.log(item);
               return (
                 <div key={i} className='col-xs-3'>
-                  <EachEmployer 
+                  <EachFreelancerProfile 
                   name={item.name} 
-                  company={item.company} 
-                  fieldNeeded={item.field_needed} 
-                  description={item.description}
-                  image={item.image}
+                  field={item.field} 
+                  experience={item.experience}
                   />
                 </div>
               )
@@ -69,8 +67,8 @@ class EmployerProfile extends React.Component {
   }
 }
 
-EmployerProfile.contextTypes = {
+FreelancerProfile.contextTypes = {
   router: React.PropTypes.any
 };
 
-export { EmployerProfile };
+export { FreelancerProfile };
