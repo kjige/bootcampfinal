@@ -3,7 +3,7 @@ import * as React from 'react';
 class EachSuggestion extends React.Component {
   render() {
     var suggestionList = this.props.suggestion.map((item, index) => {
-      return (<li key={index}>{item}</li>);
+      return (<li key={index}>{item.suggestion[0]}</li>);
       console.log('sug list', {item});
     }); 
     return(
