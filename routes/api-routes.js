@@ -52,12 +52,15 @@ module.exports = function (app) {
 
     // signup routes
     app.post('/employer', function (req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         // create a new employer profile and pass the req.body to the entry
         var newEmployer = new Employer(req.body);
 
         // save the new employer in the employers collection
         newEmployer.save(function(err, doc) {
+            console.log(err);
+            console.log(doc);
+            
             if (err) {
                 res.send(err);
             } else {
