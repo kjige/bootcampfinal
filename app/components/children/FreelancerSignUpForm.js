@@ -1,7 +1,16 @@
 import * as React from 'react';
 import * as axios from 'axios';
-// import { notification } from 'antd';
+import { Button, notification } from 'antd';
 
+
+/*ReactDOM.render(
+  <div>
+    <Button onClick={() => openNotificationWithIcon('success')}>Success</Button>
+    <Button onClick={() => openNotificationWithIcon('info')}>Info</Button>
+    <Button onClick={() => openNotificationWithIcon('warning')}>Warning</Button>
+    <Button onClick={() => openNotificationWithIcon('error')}>Error</Button>
+  </div>
+, mountNode);*/
 class FreelancerSignUpForm extends React.Component {
   
   constructor(props) {
@@ -24,11 +33,20 @@ class FreelancerSignUpForm extends React.Component {
       field: newVal
     });
   }
+  
+  openNotificationWithIcon () {
+    notification['success']({
+      message: 'Profile Uploaded',
+      description: 'Your profile will be displayed in the Consultants Page!',
+    });
+  };
 
   saveNewFreelancer(event) {
     event.preventDefault();
     axios.post('/freelancer', this.state).then((data) => {
       console.log('success', data);
+      this.openNotificationWithIcon();
+      this.context.router.push('/dash/freelancerprofile')
     })
     .catch((error) => {
       console.log('error', error);
@@ -38,6 +56,7 @@ class FreelancerSignUpForm extends React.Component {
   render() {
     return (
     <div className="box">
+      <Button onClick={this.openNotificationWithIcon()}></Button>
       <div className='col-xs-8 col-xs-offset-2'>
         <form onSubmit={(event) => this.saveNewFreelancer(event)} >
           <div className='form-row col-xs-6'>
@@ -98,5 +117,9 @@ class FreelancerSignUpForm extends React.Component {
     );
   }
 }
+
+FreelancerSignUpForm.contextTypes = {
+  router: React.PropTypes.any
+};
 
 export { FreelancerSignUpForm };
