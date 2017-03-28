@@ -28,9 +28,9 @@ class HomeRow2 extends React.Component {
   
   render() {
     return (
-   <div className="row">
-    <div className="box">
-        <div className="col-lg-12">
+      <div className="row">
+        <div className="box">
+        <div className="col-lg-12 center">
             <hr />
             <h2 className="intro-text text-center">Our 
                 <strong> Consultants</strong>
@@ -48,10 +48,14 @@ class HomeRow2 extends React.Component {
                     )
                 }
             })}
-        <a href='#/dash/freelancerprofile'>  More... </a>
-       </div>
+      <div className="col-xs-3">
+
+      <a href='#/dash/freelancerprofile'>More... </a>
+      </div>
+      </div>
+
+    </div>    
     </div>
-        </div>
     );
   }
 }
