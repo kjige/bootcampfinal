@@ -10,11 +10,11 @@ import { HomeRow3 } from './children/HomeRow3';
 class Home extends React.Component {
   
   componentWillMount(){
-    this.initializeState();
+    // this.initializeState();
     var userId = sessionStorage.getItem('userId');
     console.log('USERID', userId);
     this.checkId(userId);
-    this.getJobs();
+    // this.getJobs();
   }
 
   initializeState() {
@@ -31,14 +31,14 @@ class Home extends React.Component {
     }
   }
 
-  getJobs() {
-    axios.get('/employers').then((res)=> {
-      console.log('EMPS', res);
-      this.setState({
-        docs: res.data
-      });
-    });
-  }
+  // getJobs() {
+  //   axios.get('/employers').then((res)=> {
+  //     console.log('EMPS', res);
+  //     this.setState({
+  //       docs: res.data
+  //     });
+  //   });
+  // }
 
   render() {
 
