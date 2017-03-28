@@ -78,7 +78,8 @@ class FreelancerSignUpForm extends React.Component {
               type="text"
               value={this.state.experience}
               className="form-control"
-              onChange={(event) => this.updateInput(event)} />
+              onChange={(event) => this.updateInput(event)} 
+              value={this.state.experience}/>
         </div>
 
         <div className='form-row col-xs-12'>

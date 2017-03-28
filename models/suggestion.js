@@ -8,7 +8,7 @@ const Schema = mongoose.Schema;
 // instantiate Employer object with the structure of data and its rules
 const SuggestionSchema = new Schema({
     suggestion: {
-        type: String,
+        type: Array,
         trim: true
     }
 });
