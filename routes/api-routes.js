@@ -133,7 +133,7 @@ module.exports = function (app) {
     });
 // get suggestions from user collections and populate suggestions collections to display on forum page
      app.get('/usersuggestion', function(req, res) {
-        db.find({}).populate('suggestion').exec(function(error, doc) {
+        db.find({}).populate('suggestion employer freelancer').exec(function(error, doc) {
             if(error) {
                 res.send(error);
             }
@@ -144,18 +144,18 @@ module.exports = function (app) {
         });
     });
 
-    app.post('/freelancer', function(req, res) {
-        var newFreelancer = new Freelancer(req.body);
-        newFreelancer.save(function(error, doc) {
-            if(error) {
-                res.send(error);
-            }
-            else {
-                res.send(doc);
-                console.log(doc);
-            }
-        });
-    });
+    // app.post('/freelancer', function(req, res) {
+    //     var newFreelancer = new Freelancer(req.body);
+    //     newFreelancer.save(function(error, doc) {
+    //         if(error) {
+    //             res.send(error);
+    //         }
+    //         else {
+    //             res.send(doc);
+    //             console.log(doc);
+    //         }
+    //     });
+    // });
 
     app.get('/employers', function(req, res) {
         Employer.find({}, function(error, doc) {

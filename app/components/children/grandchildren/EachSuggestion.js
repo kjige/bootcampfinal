@@ -9,7 +9,7 @@ class EachSuggestion extends React.Component {
     return(
       <div>    
         <img
-        src="http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg"
+        src={this.props.image}
         className="img-circle"
         alt="Cinque Terre"
         width="50"
