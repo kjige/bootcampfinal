@@ -11,7 +11,8 @@ class EmployerSignUpForm extends React.Component {
       name: '',
       company: '',
       field_needed: 'Legal',
-      description: ''
+      description: '',
+      image: ''
     };
   }
 
