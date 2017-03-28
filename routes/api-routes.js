@@ -139,7 +139,20 @@ module.exports = function (app) {
             }
             else {
                 res.send(doc);
-                console.log(doc);
+                // console.log(doc);
+            }
+        });
+    });
+
+    // Route to get all the freelancer from the database
+    app.get('/freelancers', function(req, res){
+        Freelancer.find({}, function(error, doc){
+            if(error) {
+                res.send(error);
+            }
+            else {
+                res.send(doc);
+                // console.log(doc);
             }
         });
     });
