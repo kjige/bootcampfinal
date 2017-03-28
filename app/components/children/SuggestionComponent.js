@@ -16,7 +16,7 @@ class SuggestionComponent extends React.Component {
 
   componentDidMount() {
     axios.get('/usersuggestion').then((response) => {
-      console.log('this is the suggestion', response.data);
+      console.log('this is the suggestion', response);
       this.setState({
         suggestions: response.data
       });

@@ -109,8 +109,7 @@ module.exports = function (app) {
 // freelancer post
     app.post('/freelancer', function (req, res) {
         var newFreelancer = new Freelancer(req.body);
-
-        // save the new employer in the employers collection
+        // save the new freelancer in the freelancers collection
         newFreelancer.save(function(err, doc) {
             if (err) {
                 res.send(err);
@@ -126,9 +125,7 @@ module.exports = function (app) {
                         res.json(doc);
                     }
                 });
-                
             }
-
         }); 
     });
 // get suggestions from user collections and populate suggestions collections to display on forum page
@@ -144,21 +141,21 @@ module.exports = function (app) {
         });
     });
 
-    // app.post('/freelancer', function(req, res) {
-    //     var newFreelancer = new Freelancer(req.body);
-    //     newFreelancer.save(function(error, doc) {
-    //         if(error) {
-    //             res.send(error);
-    //         }
-    //         else {
-    //             res.send(doc);
-    //             console.log(doc);
-    //         }
-    //     });
-    // });
-
     app.get('/employers', function(req, res) {
         Employer.find({}, function(error, doc) {
+            if(error) {
+                res.send(error);
+            }
+            else {
+                res.send(doc);
+                // console.log(doc);
+            }
+        });
+    });
+
+    // Route to get all the freelancer from the database
+    app.get('/freelancers', function(req, res){
+        Freelancer.find({}, function(error, doc){
             if(error) {
                 res.send(error);
             }
