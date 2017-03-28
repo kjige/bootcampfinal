@@ -9,8 +9,6 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
-    <link rel="stylesheet" type="text/css" href="/vendor/formvalidation/css/formValidation.min.css">-->
 
 
 
@@ -43,72 +41,7 @@
     </script>-->
     <!--<script src="/vendor/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>-->
     <!-- Initialize the plugin: -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#multiselectForm').multiselect();
-    });
-</script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
-    <!--<script>
-        $(document).ready(function () {
-                    // You don't need to care about onDropdownShow, onDropdownHide options
-                    // and adjustByScrollHeight(), adjustByHeight() methods
-                    // They are for this specific demo
-                    $('#multiselectForm')
-                        .formValidation({
-                            framework: 'bootstrap',
-                            // Exclude only disabled fields
-                            // The invisible fields set by Bootstrap Multiselect must be validated
-                            excluded: ':disabled',
-                            icon: {
-                                valid: 'glyphicon glyphicon-ok',
-                                invalid: 'glyphicon glyphicon-remove',
-                                validating: 'glyphicon glyphicon-refresh'
-                            },
-                            fields: {
-                                gender: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'The gender is required'
-                                        }
-                                    }
-                                },
-                                browsers: {
-                                    validators: {
-                                        callback: {
-                                            message: 'Please choose 2-3 browsers you use for developing',
-                                            callback: function (value, validator, $field) {
-                                                // Get the selected options
-                                                var options = validator.getFieldElements('browsers').val();
-                                                return (options != null &&
-                                                    options.length >= 2 && options.length <= 3);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        })
-                        .find('[name="browsers"]')
-                        .multiselect({
-                            enableFiltering: true,
-                            includeSelectAllOption: true,
-                            // Re-validate the multiselect field when it is changed
-                            onChange: function (element, checked) {
-                                $('#multiselectForm').formValidation('revalidateField', 'browsers');
-
-                                adjustByScrollHeight();
-                            },
-                            onDropdownShown: function (e) {
-                                adjustByScrollHeight();
-                            },
-                            onDropdownHidden: function (e) {
-                                adjustByHeight();
-                            }
-                        })
-                        .end();
-        });
-    </script>-->
 
 </body>
 

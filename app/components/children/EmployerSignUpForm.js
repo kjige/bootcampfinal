@@ -39,11 +39,12 @@ class EmployerSignUpForm extends React.Component {
   updateInput(event) {
     const newState = {};
     let array = event.target.selectedOptions;
+    let options = [];
     for (var index = 0; index < array.length; index++) {
       var element = array[index];
-      
+      options.push(element.value);
     }
-    newState[event.target.id] = [event.target.selectedOptions[element].value];
+    newState[event.target.id] = options;
     this.setState(newState);
   }
 
