@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,22 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/formvalidation/css/formValidation.min.css">-->
+
+
 
     <!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
+        rel="stylesheet" type="text/css">
 
 </head>
+
 <body>
     <div id='app'></div>
     <div class="content"></div>
@@ -33,5 +41,75 @@
         interval: 70000000000000000000000000000000000 //changes the speed
     })
     </script>-->
+    <!--<script src="/vendor/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>-->
+    <!-- Initialize the plugin: -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#multiselectForm').multiselect();
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+    <!--<script>
+        $(document).ready(function () {
+                    // You don't need to care about onDropdownShow, onDropdownHide options
+                    // and adjustByScrollHeight(), adjustByHeight() methods
+                    // They are for this specific demo
+                    $('#multiselectForm')
+                        .formValidation({
+                            framework: 'bootstrap',
+                            // Exclude only disabled fields
+                            // The invisible fields set by Bootstrap Multiselect must be validated
+                            excluded: ':disabled',
+                            icon: {
+                                valid: 'glyphicon glyphicon-ok',
+                                invalid: 'glyphicon glyphicon-remove',
+                                validating: 'glyphicon glyphicon-refresh'
+                            },
+                            fields: {
+                                gender: {
+                                    validators: {
+                                        notEmpty: {
+                                            message: 'The gender is required'
+                                        }
+                                    }
+                                },
+                                browsers: {
+                                    validators: {
+                                        callback: {
+                                            message: 'Please choose 2-3 browsers you use for developing',
+                                            callback: function (value, validator, $field) {
+                                                // Get the selected options
+                                                var options = validator.getFieldElements('browsers').val();
+                                                return (options != null &&
+                                                    options.length >= 2 && options.length <= 3);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                        .find('[name="browsers"]')
+                        .multiselect({
+                            enableFiltering: true,
+                            includeSelectAllOption: true,
+                            // Re-validate the multiselect field when it is changed
+                            onChange: function (element, checked) {
+                                $('#multiselectForm').formValidation('revalidateField', 'browsers');
+
+                                adjustByScrollHeight();
+                            },
+                            onDropdownShown: function (e) {
+                                adjustByScrollHeight();
+                            },
+                            onDropdownHidden: function (e) {
+                                adjustByHeight();
+                            }
+                        })
+                        .end();
+        });
+    </script>-->
+
 </body>
+
 </html>
