@@ -10,14 +10,9 @@ class EmployerSignUpForm extends React.Component {
     this.state = {
       name: '',
       company: '',
-<<<<<<< HEAD
+      image:'',
       field_needed: [],
       description: ''
-=======
-      field_needed: 'Legal',
-      description: '',
-      image: ''
->>>>>>> master
     };
   
   }
