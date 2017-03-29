@@ -10,6 +10,7 @@ class Forum extends React.Component {
   componentWillMount(){
     var userId = sessionStorage.getItem('userId');
     this.checkId(userId);
+    console.log(userId);
   }
 
   checkId(userId) {
