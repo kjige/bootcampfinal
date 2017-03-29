@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as axios from 'axios';
 import {EachEmployer} from './children/grandchildren/EachEmployer';
+import {SuggestionComponentO} from './children/SuggestionComponentO';
+import {ForumFormO} from './children/ForumFormO';
 
 class EmployerProfile extends React.Component {
   
@@ -63,6 +65,13 @@ class EmployerProfile extends React.Component {
             })}
               </div>
           </div>
+           <ForumFormO />
+         <div className="col-lg-9">
+                       <hr />
+                  <p>What others are saying...</p>
+                  <hr />
+                      <SuggestionComponentO />
+                  </div>
       </div>
     );
 

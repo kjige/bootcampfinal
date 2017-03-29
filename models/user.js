@@ -16,6 +16,14 @@ var User = new Schema({
     suggestion: [{
         type: Schema.Types.ObjectId,
         ref: 'Suggestion'
+    }],
+    consultantSuggestion: [{
+        type: Schema.Types.ObjectId,
+        ref: 'ConsultantSuggestion'
+    }],
+    ownerSuggestion: [{
+        type: Schema.Types.ObjectId,
+        ref: 'OwnerSuggestion'
     }]
 });
 

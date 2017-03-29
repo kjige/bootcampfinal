@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as axios from 'axios';
 
-class ForumForm extends React.Component {
+class ForumFormO extends React.Component {
 
 initializeState() {
     this.setState({
@@ -26,15 +26,14 @@ initializeState() {
   }
   
 
-  saveNewPost(data) {
-    axios.post('/suggestion', data).then((data) => {
-            console.log('success', data);
-
+  saveNewPost(event) {
+    axios.post('/ownersuggestion', event).then((event) => {
+            console.log('success', event);
         })
         .catch((error) => {
             console.log('error', error);
         });
-        console.log('suggestion submitted', data);
+        console.log('suggestion submitted', event);
   }
   
   render() {
@@ -69,4 +68,4 @@ initializeState() {
   }
 }
 
-export { ForumForm };
+export { ForumFormO };
