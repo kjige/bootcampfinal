@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {EachUserProfile} from './children/grandchildren/EachUserProfile';
 
 class UserProfile extends React.Component {
 
@@ -14,7 +15,7 @@ class UserProfile extends React.Component {
                 <strong>User Profile</strong>
             </h2>
             <hr />
-                    
+            <EachUserProfile />
             </div>
           </div>
         </div>
