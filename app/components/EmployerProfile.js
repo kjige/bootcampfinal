@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as axios from 'axios';
 import {EachEmployer} from './children/grandchildren/EachEmployer';
+import {SuggestionComponentO} from './children/SuggestionComponentO';
+import {ForumFormO} from './children/ForumFormO';
 
 class EmployerProfile extends React.Component {
   
@@ -50,6 +52,8 @@ class EmployerProfile extends React.Component {
             {this.state.docs.map((item,i)=>{
               {/*console.log(item);*/}
               return (
+                <a href="#/dash/userprofile">
+
                 <div key={i} className='col-xs-3'>
                   <EachEmployer 
                   name={item.name} 
@@ -59,10 +63,18 @@ class EmployerProfile extends React.Component {
                   image={item.image}
                   />
                 </div>
+                </a>
               )
             })}
               </div>
           </div>
+           <ForumFormO />
+         <div className="col-lg-9">
+                       <hr />
+                  <p>What others are saying...</p>
+                  <hr />
+                      <SuggestionComponentO />
+                  </div>
       </div>
     );
 
