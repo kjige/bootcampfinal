@@ -117,5 +117,16 @@ body {
 }
 
 .eachConsultant{
-  height: 200px;
+  width: 200px;
+  height:200px;
+}
+
+.image-size{
+  height: 100px;
+}
+
+.vertical-center {
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
 }

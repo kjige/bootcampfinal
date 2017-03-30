@@ -47,13 +47,12 @@ class HomeRow2 extends React.Component {
                     )
                 }
             })}
-      <div className="col-xs-3">
-
-      <a href='#/dash/freelancerprofile'>More... </a>
-      </div>
       </div>
 
     </div>    
+      <div className="col-xs-3">
+        <a href='#/dash/freelancerprofile'>More... </a>
+      </div>
     </div>
     );
   }
