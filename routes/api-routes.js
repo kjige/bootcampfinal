@@ -225,6 +225,34 @@ module.exports = function (app) {
         });
     });
 
+    // get suggestions from user collections and populate suggestions collections to display on forum page
+    app.get('/profilesuggestion', function (req, res) {
+        db.find({}).populate('suggestion employer freelancer').exec(function (error, doc) {
+            if (error) {
+                res.send(error);
+            } else {
+                res.send(doc);
+                console.log('this is the document', doc);
+                console.log('?');
+            }
+        });
+    });
+
+    app.get('/employerprofile/:id', function (req, res) {
+         console.log('>',req.params.id);
+        Employer.find({
+            '_id': req.params.id
+        }).populate('employer').exec(function (error, doc) {
+            if (error) {
+                res.send(error);
+            } else {
+                res.send(doc);
+                console.log('employer',doc);
+            }
+        });
+    });
+
+
     app.get('/employers', function (req, res) {
         Employer.find({}, function (error, doc) {
             if (error) {

@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as axios from 'axios';
 import { EachFreelancerProfile } from './children/grandchildren/EachFreelancerProfile';
 // import { SuggestionComponent } from './children/SuggestionComponent';
-import { ForumFormC } from './children/ForumFormC';
-import { SuggestionComponentC } from './children/SuggestionComponentC';
+
+
 
 class FreelancerProfile extends React.Component {
 
@@ -65,13 +65,6 @@ class FreelancerProfile extends React.Component {
             })}
           </div>
         </div>
-        <ForumFormC />
-         <div className="col-lg-9">
-                       <hr />
-                  <p>What others are saying...</p>
-                  <hr />
-                      <SuggestionComponentC />
-                  </div>
       </div>
     );
 

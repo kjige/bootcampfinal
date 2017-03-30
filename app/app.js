@@ -38,7 +38,7 @@ const router = (
         <Route path='/dash' component={Dash} >
             <Route path='home' component={Home} />
             <Route path='forum' component={Forum} />
-            <Route path='userprofile' component={UserProfile} />
+            <Route path='userprofile/:id' component={UserProfile} />
             <Route path='employerprofile' component={EmployerProfile} /> 
             <Route path='freelancerprofile' component={FreelancerProfile} />           
             <Route path='createprofile' component={CreateProfile}>
