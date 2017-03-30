@@ -128,3 +128,12 @@ font-family: 'Gloria Hallelujah', cursive;
     -webkit-border-radius: 500px;
     -moz-border-radius: 500px;
 }
+
+.emp {
+  text-align: center
+}
+
+.sty{
+  color: #9a4628;
+  font-family: 'Gloria Hallelujah', cursive;
+}
