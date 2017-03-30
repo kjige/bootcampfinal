@@ -49,7 +49,7 @@ class HomeRow3 extends React.Component {
               })}
           <div className="col-xs-3">
             <br/>
-            <a href='#/dash/employerprofile'>More...</a>
+            <a href='#/dash/employerprofile' className='more'>More...</a>
           </div>
             </div>
           </div>

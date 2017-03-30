@@ -47,6 +47,10 @@ class HomeRow2 extends React.Component {
                     )
                 }
             })}
+      <div className="col-xs-3">
+
+      <a href='#/dash/freelancerprofile' className='more'>More... </a>
+      </div>
       </div>
 
     </div>    

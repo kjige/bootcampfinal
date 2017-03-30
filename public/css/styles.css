@@ -130,3 +130,29 @@ body {
   align-items: center;
   justify-content: center;*/
 }
+
+.brand {
+  font-family: 'Revalia', cursive !important;
+}
+
+.more{
+font-family: 'Gloria Hallelujah', cursive;
+}
+
+.avatar {
+    width:128px;
+    margin: 10px;
+    border:2px solid hsl(0, 0%, 76%);
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+}
+
+.emp {
+  text-align: center
+}
+
+.sty{
+  color: #9a4628;
+  font-family: 'Gloria Hallelujah', cursive;
+}
