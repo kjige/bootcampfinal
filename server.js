@@ -11,7 +11,7 @@ var db;
 
 mongoose.Promise = require('bluebird');
 
-mongoose.connect("mongodb://heroku_9l5s2lr9:13eioldtva9du8smb6801hqpr3@ds137760.mlab.com:37760/heroku_9l5s2lr9", function (err) {
+mongoose.connect("mongodb://localhost/workit_db", function (err) {
     
     // "mongodb://localhost/workit_db"
     
