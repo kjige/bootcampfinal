@@ -40,15 +40,15 @@ class EachConsultant extends React.Component {
       return (
         <div className="col-lg-3">
           <FlipCard type='vertical'>
-            <div className='col-xs-12 text-center border-img eachConsultant vertical-center'>
+            <div className='col-xs-12 text-center border-img eachConsultant'>
                 <img
-                className="img-circle center-block image-size"
+                className="img-circle center-block image-size avatar"
                 src={this.props.image}
                 alt="" />
                 <h4>{this.props.name}</h4>
             </div>
-            <div className='col-xs-12 text-center border-img eachConsultant vertical-center'>
-              <h5><strong>Expertise:</strong></h5><h6>{this.props.field}</h6>
+            <div className='col-xs-12 text-center border-img eachConsultant'>
+              <h5 className='vertical-center'><strong>Expertise:</strong></h5><h6>{this.props.field}</h6>
               <h5><strong>Years of experience:</strong></h5><h6>{this.props.experience}</h6>
             </div>
           </FlipCard>

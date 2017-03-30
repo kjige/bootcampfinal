@@ -118,7 +118,7 @@ body {
 
 .eachConsultant{
   width: 200px;
-  height:200px;
+  height:150px;
 }
 
 .image-size{
@@ -126,9 +126,7 @@ body {
 }
 
 .vertical-center {
-  /*display: flex;
-  align-items: center;
-  justify-content: center;*/
+  margin-top: 30px;
 }
 
 .brand {
@@ -149,8 +147,13 @@ font-family: 'Gloria Hallelujah', cursive;
 }
 
 .emp {
-  text-align: center
+  text-align: center;
 }
+
+.emp1 {
+  vertical-align: center !important;
+}
+
 
 .sty{
   color: #9a4628;
