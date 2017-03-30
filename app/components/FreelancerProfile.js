@@ -50,6 +50,7 @@ class FreelancerProfile extends React.Component {
             {this.state.docs.map((item,i)=>{
               console.log(item);
               return (
+                <a href="#/dash/userprofile">
                 <div key={i} className='col-xs-3'>
                   <EachFreelancerProfile 
                   name={item.name} 
@@ -57,6 +58,7 @@ class FreelancerProfile extends React.Component {
                   experience={item.experience}
                   />
                 </div>
+                </a>
               )
             })}
               </div>

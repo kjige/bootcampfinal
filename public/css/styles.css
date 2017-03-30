@@ -111,3 +111,20 @@ body {
   background: #fff;
   background: rgba(255,255,255,0.1);
 }
+
+.brand {
+  font-family: 'Revalia', cursive !important;
+}
+
+.more{
+font-family: 'Gloria Hallelujah', cursive;
+}
+
+.avatar {
+    width:128px;
+    margin: 10px;
+    border:2px solid hsl(0, 0%, 76%);
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+}

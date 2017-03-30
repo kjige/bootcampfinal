@@ -5,7 +5,7 @@ class EachEmployer extends React.Component {
     return(
       <div className='row-ls-12'>
        <div className='col-ls-12 border-img'>
-          <img src={this.props.image} width='100' height='100'/>
+          <img src={this.props.image} width='100' height='100' className='img-circle avatar'/>
           <h6>{this.props.name}</h6>
           <h6>Is working in : {this.props.company}</h6>
           <h6>Need help with : {this.props.fieldNeeded}</h6>
