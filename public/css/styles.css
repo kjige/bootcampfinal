@@ -112,6 +112,25 @@ body {
   background: rgba(255,255,255,0.1);
 }
 
+.homerow2 {
+  height: 350px;
+}
+
+.eachConsultant{
+  width: 200px;
+  height:200px;
+}
+
+.image-size{
+  height: 100px;
+}
+
+.vertical-center {
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+}
+
 .brand {
   font-family: 'Revalia', cursive !important;
 }

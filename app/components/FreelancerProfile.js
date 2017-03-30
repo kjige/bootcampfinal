@@ -60,6 +60,7 @@ class FreelancerProfile extends React.Component {
                     name={item.name}
                     field={item.field}
                     experience={item.experience}
+                    image={item.image}
                   />
                 </div>
                 </a>
