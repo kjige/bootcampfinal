@@ -4,7 +4,6 @@ import * as axios from 'axios';
 
 import { EachConsultant } from './grandchildren/EachConsultant';
 
-
 class HomeRow2 extends React.Component {
   getConsultants() {
     axios.get('/freelancers').then((res)=>{
@@ -18,18 +17,17 @@ class HomeRow2 extends React.Component {
   initializeState() {
     this.setState({
         docs:[]
-    });
+    }, () => this.getConsultants());
   }
 
   componentWillMount() {
     this.initializeState();
-    this.getConsultants();
   }
   
   render() {
     return (
       <div className="row">
-        <div className="box">
+        <div className="box homerow2">
         <div className="col-lg-12 center">
             <hr />
             <h2 className="intro-text text-center">Our 
@@ -44,6 +42,7 @@ class HomeRow2 extends React.Component {
                         name={item.name}
                         field={item.field}
                         experience={item.experience}
+                        image={item.image}
                         />
                     )
                 }
@@ -55,6 +54,9 @@ class HomeRow2 extends React.Component {
       </div>
 
     </div>    
+      <div className="col-xs-3">
+        <a href='#/dash/freelancerprofile'>More... </a>
+      </div>
     </div>
     );
   }
