@@ -16,14 +16,12 @@ class HomeRow3 extends React.Component {
   initializeState() {
     this.setState({
         docs:[]
-    });
+    }, () => this.getOwners());
   }
 
   componentWillMount() {
     this.initializeState();
-    this.getOwners();
   }
-  
   
   render() {
     return (
@@ -44,6 +42,7 @@ class HomeRow3 extends React.Component {
                       field_needed={item.field_needed}
                       company={item.company}
                       description={item.description}
+                      image={item.image}
                       />
                   )
                 }

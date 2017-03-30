@@ -40,16 +40,16 @@ class EachProjectOwner extends React.Component {
     return (
         <div className="col-lg-3 center-block background2">
           <FlipCard>
-            <div className='col-xs-12 text-center border-img background2'>
+            <div className='col-xs-12 text-center border-img background2 eachConsultant'>
               <img
               width="200"
               height="400"
               className="img-responsive img-circle"
-              src="http://placehold.it/350x150"
+              src={this.props.image}
               alt="" />
               <h4>{this.props.name}</h4>
             </div>
-            <div className='text-center border-img background'>
+            <div className='text-center border-img background eachConsultant'>
               <h5><strong>Company:</strong> </h5><h6>{this.props.company}</h6>
               <h5><strong>Description:</strong> </h5><h6>{this.props.description}</h6>
               <h5><strong>Field Needed:</strong> </h5><h6>{this.props.field_needed}</h6>

@@ -14,18 +14,7 @@ class EmployerSignUpForm extends React.Component {
       field_needed: [],
       description: ''
     };
-  
   }
-
-  // initializeState() {
-  //   this.setState({
-  //     name: '',
-  //     company: '',
-  //     field_needed: '',
-  //     image: '',
-  //     description: ''
-  //   });
-  // }
 
   componentWillMount() {
     // this.initializeState();
@@ -61,7 +50,7 @@ class EmployerSignUpForm extends React.Component {
     event.preventDefault();
     axios.post('/employer', this.state).then((res) => {
       console.log('success', res);
-
+      this.context.router.push('/dash/employerprofile');
     })
       .catch((error) => {
         console.log('error', error);
@@ -163,5 +152,9 @@ class EmployerSignUpForm extends React.Component {
     );
   }
 }
+
+EmployerSignUpForm.contextTypes = {
+  router: React.PropTypes.any
+};
 
 export { EmployerSignUpForm };
