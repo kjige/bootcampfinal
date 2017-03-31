@@ -19,7 +19,7 @@ class FreelancerSignUpForm extends React.Component {
       name: '',
       field: 'Legal',
       experience: '',
-      image: 'http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg' };
+      image: './img/defaultimg.png' };
   }
 
    componentWillMount() {

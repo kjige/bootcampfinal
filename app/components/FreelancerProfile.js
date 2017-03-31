@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
 import { EachFreelancerProfile } from './children/grandchildren/EachFreelancerProfile';
-// import { SuggestionComponent } from './children/SuggestionComponent';
 
 
 
