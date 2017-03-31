@@ -58,4 +58,4 @@ db.Users.register(req.body.email.toLowerCase(), req.body.password, function(err,
 # Authors
 * Poornima Sewak
 * Terence Ro
-* Chris 
+* Chris Leong
