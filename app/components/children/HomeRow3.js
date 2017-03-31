@@ -16,19 +16,17 @@ class HomeRow3 extends React.Component {
   initializeState() {
     this.setState({
         docs:[]
-    });
+    }, () => this.getOwners());
   }
 
   componentWillMount() {
     this.initializeState();
-    this.getOwners();
   }
-  
   
   render() {
     return (
     <div className="row">
-        <div className="box">
+        <div className="box homerow2">
           <div className="col-lg-12">
             <hr />
             <h2 className="intro-text text-center">Our 
@@ -44,13 +42,14 @@ class HomeRow3 extends React.Component {
                       field_needed={item.field_needed}
                       company={item.company}
                       description={item.description}
+                      image={item.image}
                       />
                   )
                 }
               })}
           <div className="col-xs-3">
             <br/>
-            <a href='#/dash/employerprofile'>More...</a>
+            <a href='#/dash/employerprofile' className='more'>More...</a>
           </div>
             </div>
           </div>

@@ -65,7 +65,6 @@ class FreelancerSignUpForm extends React.Component {
   render() {
     return (
     <div className="box">
-      <Button onClick={this.openNotificationWithIcon()}></Button>
       <div className='col-xs-8 col-xs-offset-2'>
         <form onSubmit={(event) => this.saveNewFreelancer(event)} >
           <div className='form-row col-xs-6'>
@@ -111,16 +110,16 @@ class FreelancerSignUpForm extends React.Component {
         </div>
 
          <div className='form-row col-xs-6'>
-              <br />
-              <label htmlFor='image'>Image</label><br />
-              <input
-                id='image'
-                type='text'
-                className='form-control'
-                onChange={(event) => this.updateInput(event)}
-                value={this.state.image}
-                required />
-            </div>
+            <br />
+            <label htmlFor='image'>Image</label><br />
+            <input
+              id='image'
+              type='text'
+              className='form-control'
+              onChange={(event) => this.updateInput(event)}
+              value={this.state.image}
+              required />
+          </div>
 
         <div className='form-row col-xs-12'>
           <br/>
