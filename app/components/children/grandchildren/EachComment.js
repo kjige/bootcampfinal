@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+
 class EachComment extends React.Component {
     render() {
         // var suggestionList = this.props.suggestion.map((item, index) => {

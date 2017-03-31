@@ -20,6 +20,7 @@ import { Forum } from "./components/Forum";
 import { UserProfile } from "./components/UserProfile";
 import { EmployerProfile } from "./components/EmployerProfile";
 import { FreelancerProfile } from "./components/FreelancerProfile";
+import { UserProfileConsultant } from "./components/UserProfileConsultant";
 
 
 import * as axios from 'axios';
@@ -39,6 +40,7 @@ const router = (
             <Route path='home' component={Home} />
             <Route path='forum' component={Forum} />
             <Route path='userprofile/:id' component={UserProfile} />
+            <Route path='userprofileconsultant/:id' component={UserProfileConsultant} />
             <Route path='employerprofile' component={EmployerProfile} /> 
             <Route path='freelancerprofile' component={FreelancerProfile} />           
             <Route path='createprofile' component={CreateProfile}>

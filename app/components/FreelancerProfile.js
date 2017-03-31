@@ -54,13 +54,17 @@ class FreelancerProfile extends React.Component {
             {this.state.docs.map((item, i) => {
               console.log(item);
               return (
+                <a href={"#/dash/userprofileconsultant/" + item._id}>
+
                 <div key={i} className='col-xs-3'>
                   <EachFreelancerProfile
                     name={item.name}
                     field={item.field}
                     experience={item.experience}
+                    image={item.image}
                   />
                 </div>
+                </a>
               )
             })}
           </div>
