@@ -41,7 +41,7 @@ npm install express --save
 
 # Walk Through Of Some Interesting Code
 
-Creation of the user code using Passport
+Creation of the user code using React-flip.js
 ```
  <FlipCard type='vertical'>
             <div className='col-xs-12 text-center border-img eachConsultant'>
