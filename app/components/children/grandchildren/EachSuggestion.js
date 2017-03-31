@@ -8,18 +8,19 @@ class EachSuggestion extends React.Component {
     });
     return (
       <div>
-        <div className='box'>
-          <img
-            src={this.props.image}
-            className="img-circle"
-            alt="Cinque Terre"
-            width="50"
-            height="50" />
-          <div>
+        <div className='row col-xs-8 panel center-block'>
+          <div className="col-xs-6">
+            <img
+              src={this.props.image}
+              className="img-circle"
+              alt="Cinque Terre"
+              width="50"
+              height="50" />
             <h2>{this.props.user}</h2>
-            <ul>
-              {suggestionList}
-            </ul>
+          </div>
+
+          <div className='col-xs-6'>
+            {suggestionList}
           </div>
         </div>
       </div>
