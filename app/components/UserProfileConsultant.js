@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as axios from 'axios';
 
-class UserProfile extends React.Component {
+class UserProfileConsultant extends React.Component {
 
   initializeState() {
     this.setState({
@@ -21,7 +21,7 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     console.log('emp id', this.props.params.id);
-    axios.get('/employerprofile/' + this.props.params.id).then((response) => {
+    axios.get('/consultantprofile/' + this.props.params.id).then((response) => {
       console.log('emp data', response.data);
       this.setState({
         profile: response.data
@@ -40,7 +40,7 @@ class UserProfile extends React.Component {
   }
 
   saveNewPost(data) {
-    axios.post('/profilesuggestionowner', data).then((data) => {
+    axios.post('/profilesuggestionconsultant', data).then((data) => {
       console.log('emp comment', data);
     })
       .catch((error) => {
@@ -93,7 +93,7 @@ class UserProfile extends React.Component {
                 <ul>
                   {this.state.suggestions.map((item, index) => {
                     return (
-                      <li key={index}> Comment: {item.suggestion}</li>
+                      <li key={index}>Comment: {item.suggestion}</li>
                     );
                   })}
                 </ul>
@@ -135,4 +135,4 @@ class UserProfile extends React.Component {
   }
 }
 
-export { UserProfile };
+export { UserProfileConsultant };

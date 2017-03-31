@@ -7,7 +7,7 @@ var Employer = require('../models/employer')
 var Freelancer = require('../models/freelancer');
 var Suggestion = require('../models/suggestion');
 var Consultant = require('../models/consultantSuggestion');
-var Owner = require('../models/ownerSuggestion');
+var ProfileSuggestion = require('../models/profileSuggestion');
 var User = db.User;
 
 module.exports = function (app) {
@@ -171,17 +171,17 @@ module.exports = function (app) {
     });
 
     // get suggestions from user collections and populate suggestions collections to display on consultant page
-    app.get('/userconsultantsuggestion', function (req, res) {
-        db.find({}).populate('consultantSuggestion').exec(function (error, doc) {
-            if (error) {
-                res.send(error);
-            } else {
-                res.send(doc);
-                console.log('this is the doc', doc);
+    // app.get('/consultantprofile', function (req, res) {
+    //     db.find({}).populate('consultantSuggestion').exec(function (error, doc) {
+    //         if (error) {
+    //             res.send(error);
+    //         } else {
+    //             res.send(doc);
+    //             console.log('this is the doc', doc);
 
-            }
-        });
-    });
+    //         }
+    //     });
+    // });
     // freelancer post
     app.post('/freelancer', function (req, res) {
         var newFreelancer = new Freelancer(req.body);
@@ -222,6 +222,21 @@ module.exports = function (app) {
                 console.log('this is the document', doc);
                 console.log('?');
             }
+        }); 
+    });
+
+    app.get('/employerprofile/:id', function (req, res) {
+         console.log('>', req.body);
+         
+        Employer.find({
+            '_id': req.params.id
+        }).populate('ProfileSuggestion').exec(function (error, doc) {
+            if (error) {
+                res.send(error);
+            } else {
+                res.send(doc);
+                console.log('employer',doc);
+            }
         });
     });
 
@@ -236,21 +251,25 @@ module.exports = function (app) {
         });
     });
 
-    app.post('/ownersuggestion', function (req, res) {
-        var newOwner = new Owner(req.body);
-
+    app.post('/profilesuggestionowner', function (req, res) {
+        var newProfileSuggestion = new ProfileSuggestion(req.body);
+        console.log('emp reqs requester', req.body.user);
+        // console.log(req.body.profile[0].name);
+        console.log(req.body);
         // save the new employer in the employers collection
-        newOwner.save(function (err, doc) {
+        newProfileSuggestion.save(function (err, doc) {
+            // console.log('emp doc', doc);
             if (err) {
                 res.send(err);
             } else {
                 // Find one user in our user collection
                 // then update it by pushing the object id of the employer 
-                db.findOneAndUpdate({
-                    '_id': req.body.user
+                Employer.findOneAndUpdate({
+                    '_id': req.body.profile[0]._id
                 }, {
                     $push: {
-                        'ownerSuggestion': doc._id
+                        'ProfileSuggestion': doc._id
+                        
                     }
                 }, {
                     new: true
@@ -269,19 +288,6 @@ module.exports = function (app) {
         });
     });
 
-
-    // get suggestions from user collections and populate suggestions collections to display on owner profile page
-    app.get('/userownersuggestion', function (req, res) {
-        db.find({}).populate('ownerSuggestion').exec(function (error, doc) {
-            if (error) {
-                res.send(error);
-            } else {
-                res.send(doc);
-                console.log('this is the doc', doc);
-
-            }
-        });
-    });
     // Route to get all the freelancer from the database
     app.get('/freelancers', function (req, res) {
         Freelancer.find({}, function (error, doc) {
@@ -294,15 +300,56 @@ module.exports = function (app) {
         });
     });
 
-    // Route to get all the freelancer from the database
-    app.get('/freelancers', function (req, res) {
-        Freelancer.find({}, function (error, doc) {
+    app.get('/consultantprofile/:id', function (req, res) {
+         console.log('>', req.body);
+         
+        Freelancer.find({
+            '_id': req.params.id
+        }).populate('ProfileSuggestion').exec(function (error, doc) {
             if (error) {
                 res.send(error);
             } else {
                 res.send(doc);
-                // console.log(doc);
+                console.log('consultant',doc);
             }
         });
     });
+
+    app.post('/profilesuggestionconsultant', function (req, res) {
+        var newProfileSuggestion = new ProfileSuggestion(req.body);
+        console.log('emp reqs requester', req.body.user);
+        // console.log(req.body.profile[0].name);
+        console.log(req.body);
+        // save the new employer in the employers collection
+        newProfileSuggestion.save(function (err, doc) {
+            // console.log('emp doc', doc);
+            if (err) {
+                res.send(err);
+            } else {
+                // Find one user in our user collection
+                // then update it by pushing the object id of the employer 
+                Freelancer.findOneAndUpdate({
+                    '_id': req.body.profile[0]._id
+                }, {
+                    $push: {
+                        'ProfileSuggestion': doc._id
+                        
+                    }
+                }, {
+                    new: true
+                }, function (error, doc) {
+                    // log any errors
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        // or send the doc to the browser
+                        res.json(doc);
+                    }
+                });
+
+            }
+
+        });
+    });
+
 }

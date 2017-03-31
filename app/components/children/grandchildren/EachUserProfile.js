@@ -1,11 +1,32 @@
 import * as React from 'react';
-import {EachComment} from './EachComment';
+import * as axios from 'axios';
+// import { EachSuggestion } from './grandchildren/EachSuggestion';
+import { EachComment } from './EachComment';
 
 class EachUserProfile extends React.Component {
 
-  render() {
+    componentWillMount() {
+        // getUserId() =>
+        var userId = sessionStorage.getItem('userId');
+        this.setState({
+            user: userId,
+            suggestions: []
+        })
+    }
 
-    return (
+    componentDidMount() {
+        // console.log(this.props.params.id);
+        axios.get('/usersuggestion').then((response) => {
+            console.log('this is the suggestion', response);
+            this.setState({
+                suggestions: response.data
+            });
+        });
+    }
+
+    render() {
+     
+        return (
             <div className='row'>
                 <div className="col-lg-6">
 
@@ -16,9 +37,14 @@ class EachUserProfile extends React.Component {
                     <h3 >User Name</h3>
                 </div>
                 <EachComment />
-          </div>
-    );
-  }
+                <div className="box">
+                    
+                </div>
+            </div>
+
+        );
+    }
 }
+
 
 export { EachUserProfile };
