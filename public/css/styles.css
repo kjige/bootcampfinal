@@ -159,3 +159,7 @@ font-family: 'Gloria Hallelujah', cursive;
   color: #9a4628;
   /*font-family: 'Gloria Hallelujah', cursive;*/
 }
+
+.col-xs-3 {
+    padding-bottom: 35px;
+}
