@@ -352,4 +352,12 @@ module.exports = function (app) {
         });
     });
 
+    app.post('/users', function(req,res){
+        // console.log('REQBODYID',req.body);
+        db.find({'_id':req.body}, function(err,dbRes){
+            console.log('DBRESUSERNAME',dbRes[0].username);
+            res.json(dbRes);
+        });
+    });
+
 }

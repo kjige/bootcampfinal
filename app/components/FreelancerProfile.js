@@ -33,7 +33,6 @@ class FreelancerProfile extends React.Component {
 
   getJobs() {
     axios.get('/freelancers').then((res) => {
-      console.log('free', res);
       this.setState({
         docs: res.data
       });
@@ -51,7 +50,6 @@ class FreelancerProfile extends React.Component {
             </h2>
             <hr />
             {this.state.docs.map((item, i) => {
-              console.log(item);
               return (
 
                 <a href={"#/dash/userprofileconsultant/" + item._id}>
