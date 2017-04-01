@@ -36,7 +36,7 @@ class SuggestionComponent extends React.Component {
         }
 
       return (
-        <div className=''>
+        <div key={index}>
           <EachSuggestion user={item.username} key={item._id} suggestion={item.suggestion} image={image} />
         </div>
       )
