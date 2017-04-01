@@ -29,7 +29,7 @@ class EachProfileComment extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='col-xs-12'>
         <div className="col-xs-3">
           <h5>{this.state.name}:</h5>
         </div>
