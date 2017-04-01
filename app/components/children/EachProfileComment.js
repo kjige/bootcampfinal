@@ -30,7 +30,7 @@ class EachProfileComment extends React.Component {
     return (
       <div>
         <div className="col-xs-3">
-          <h5>{this.state.name}</h5>
+          <h5>{this.state.name}:</h5>
         </div>
         <div className="col-xs-9">
           <h5>{this.props.suggestion}</h5>

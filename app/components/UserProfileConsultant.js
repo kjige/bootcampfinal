@@ -39,10 +39,6 @@ class UserProfileConsultant extends React.Component {
     });
   }
 
-  getSuggestionUsername() {
-    axios.get('')
-  }
-
   updateInput(event) {
     const newState = {};
     newState[event.target.id] = event.target.value;
@@ -99,14 +95,12 @@ class UserProfileConsultant extends React.Component {
                     width="50"
                     height="50" />*/}
               <div>
-                <h2>name</h2>
+                <h2>Comments</h2>
                 <ul>
                   {this.state.suggestions.map((item, index) => {
                     return (
                       <div key={index}>
-
                         <EachProfileComment id={item.user} suggestion={item.suggestion} />
-                        {/*<li key={index}> {item.suggestion}</li>*/}
                       </div>
                     );
                   })}
