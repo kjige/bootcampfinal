@@ -8,8 +8,9 @@ class HomeRow2 extends React.Component {
   getConsultants() {
     axios.get('/freelancers').then((res)=>{
       console.log(res.data);
+      let dataReverse = res.data.reverse();
       this.setState({
-        docs: res.data
+        docs: dataReverse
       });
     });
   }

@@ -10,7 +10,7 @@ class EmployerSignUpForm extends React.Component {
     this.state = {
       name: '',
       company: '',
-      image:'',
+      image:'./img/defaultimg.png',
       field_needed: [],
       description: ''
     };

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as axios from 'axios';
 import {EachProfileComment} from './children/EachProfileComment';
 
-class UserProfile extends React.Component {
+class UserProfileConsultant extends React.Component {
 
   initializeState() {
     this.setState({
@@ -22,41 +22,41 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     console.log('emp id', this.props.params.id);
-    this.getOwners();
+    this.getConsultants();
   }
-    
-    getOwners() {
-    axios.get('/employerprofile/' + this.props.params.id).then((response) => {
+  
+  getConsultants() {
+    axios.get('/consultantprofile/' + this.props.params.id).then((response) => {
       console.log('emp data', response.data);
       this.setState({
         profile: response.data
       });
       this.setState({
-        suggestions: response.data[0].ProfileSuggestion
+        suggestions: response.data[0].ProfileSuggestion,
+        suggestion: ''
       });
+      console.log('SUGGESTIONS',this.state.suggestions);
     });
   }
 
   updateInput(event) {
     const newState = {};
-
     newState[event.target.id] = event.target.value;
     this.setState(newState);
   }
 
   saveNewPost(data) {
-    axios.post('/profilesuggestionowner', data).then((data) => {
+    axios.post('/profilesuggestionconsultant', data).then((data) => {
       console.log('emp comment', data);
-      this.getOwners();
+      this.getConsultants();
     })
       .catch((error) => {
         console.log('error', error);
       });
     console.log('emp commment submitted', data);
   }
+
   render() {
-
-
 
     return (
       <div className='container'>
@@ -95,7 +95,7 @@ class UserProfile extends React.Component {
                     width="50"
                     height="50" />*/}
               <div>
-                <h2>name</h2>
+                <h2>Comments</h2>
                 <ul>
                   {this.state.suggestions.map((item, index) => {
                     return (
@@ -120,6 +120,7 @@ class UserProfile extends React.Component {
                     value={this.props.user} />
                   <label htmlFor='suggestion'>What's on my mind</label><br />
                   <textarea
+                    ref='suggestion'
                     id='suggestion'
                     type='text'
                     rows='5'
@@ -143,4 +144,8 @@ class UserProfile extends React.Component {
   }
 }
 
-export { UserProfile };
+UserProfileConsultant.contextTypes = {
+  router: React.PropTypes.any
+};
+
+export { UserProfileConsultant };

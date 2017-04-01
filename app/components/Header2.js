@@ -41,7 +41,7 @@ class Header2 extends React.Component{
                         <a href='#/dash/employerprofile'>Projects</a>
                     </li>
                     <li>
-                        <a href='#/dash/freelancerprofile'>Freelancers</a>
+                        <a href='#/dash/freelancerprofile'>Consultants</a>
                     </li>
                     <li>
                         <a onClick={(event)=>{this.handleLogout(event)}}>Logout</a>

@@ -24,7 +24,11 @@ const FreelancerSchema = new Schema({
     },
     image: {
         type: String
-    }
+    },
+    ProfileSuggestion: [{
+        type: Schema.Types.ObjectId,
+        ref: 'ProfileSuggestion'
+    }]
 });
 
 // create the 'Freelancer' model with our Schema class/contructor

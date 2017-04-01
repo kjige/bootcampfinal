@@ -1,12 +1,11 @@
 import * as React from 'react';
 import * as axios from 'axios';
-import {EachEmployer} from './children/grandchildren/EachEmployer';
-import {SuggestionComponentO} from './children/SuggestionComponentO';
-import {ForumFormO} from './children/ForumFormO';
+import { EachEmployer } from './children/grandchildren/EachEmployer';
+
 
 class EmployerProfile extends React.Component {
-  
-  componentWillMount(){
+
+  componentWillMount() {
     this.initializeState();
     var userId = sessionStorage.getItem('userId');
     // console.log('USERID', userId);
@@ -22,59 +21,53 @@ class EmployerProfile extends React.Component {
 
   checkId(userId) {
     if (userId) {
-      axios.post('findId', {'userId': userId}).then((res)=>{
+      axios.post('findId', { 'userId': userId }).then((res) => {
         if (res) this.context.router.push('/dash/employerprofile');
       })
     }
   }
 
   getJobs() {
-    axios.get('/employers').then((res)=> {
-      // console.log('EMPS', res);
+    axios.get('/employers').then((res) => {
+      console.log('EMPS', res);
       this.setState({
         docs: res.data
       });
     });
   }
 
-  render() {
 
+
+  render() {
     return (
       <div className='container'>
 
         <div className="row">
           <div className="box">
-               <hr />
-                    <h2 className="intro-text text-center">Employers
-                        <strong> Profile </strong>
-                    </h2>
-                    <hr />
-            {this.state.docs.map((item,i)=>{
-              {/*console.log(item);*/}
+            <hr />
+            <h2 className="intro-text text-center">Project Owner
+                        <strong> Profiles </strong>
+            </h2>
+            <hr />
+            {this.state.docs.map((item, i) => {
               return (
-                <a href="#/dash/userprofile">
+                <a href={"#/dash/userprofile/" + item._id}>
 
-                <div key={i} className='col-xs-3'>
-                  <EachEmployer 
-                  name={item.name} 
-                  company={item.company} 
-                  fieldNeeded={item.field_needed} 
-                  description={item.description}
-                  image={item.image}
-                  />
-                </div>
+                  <div key={i} className='col-xs-3'>
+                    <EachEmployer
+                      name={item.name}
+                      company={item.company}
+                      fieldNeeded={item.field_needed}
+                      description={item.description}
+                      image={item.image}
+                    />
+                  </div>
                 </a>
               )
             })}
-              </div>
           </div>
-           <ForumFormO />
-         <div className="col-lg-9">
-                       <hr />
-                  <p>What others are saying...</p>
-                  <hr />
-                      <SuggestionComponentO />
-                  </div>
+        </div>
+
       </div>
     );
 

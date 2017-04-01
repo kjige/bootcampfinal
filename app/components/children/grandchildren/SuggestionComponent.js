@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as axios from 'axios';
-import { EachSuggestionO } from './grandchildren/EachSuggestionO';
+import { EachSuggestion } from './grandchildren/EachSuggestion';
 
-class SuggestionComponentO extends React.Component {
+class SuggestionComponent extends React.Component {
 
   componentWillMount() {
     // getUserId() =>
@@ -14,7 +14,7 @@ class SuggestionComponentO extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/userownersuggestion').then((response) => {
+    axios.get('/usersuggestion').then((response) => {
       console.log('this is the suggestion', response);
       this.setState({
         suggestions: response.data
@@ -28,9 +28,10 @@ class SuggestionComponentO extends React.Component {
         let image;
         if (item.employer[0] === undefined || item.freelancer[0] === undefined) {
           image = 'http://greenwayconsults.com/wp-content/uploads/2015/05/Blonde-Female-Professional.jpg';
-        }    
+        } 
+          
       return (
-        <EachSuggestionO user={item.username} key={item._id} suggestion={item.ownerSuggestion} image={image} />
+        <EachSuggestion user={item.username} key={item._id} suggestion={item.suggestion} image={image} />
       )
     });
     return (
@@ -41,4 +42,4 @@ class SuggestionComponentO extends React.Component {
   }
 }
 
-export { SuggestionComponentO };
+export { SuggestionComponent };

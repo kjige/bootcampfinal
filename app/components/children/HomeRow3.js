@@ -7,8 +7,9 @@ class HomeRow3 extends React.Component {
   getOwners() {
     axios.get('/employers').then((res)=>{
       console.log(res.data);
+      let dataReverse = res.data.reverse();
       this.setState({
-        docs: res.data
+        docs: dataReverse
       });
     });
   }
@@ -26,7 +27,7 @@ class HomeRow3 extends React.Component {
   render() {
     return (
     <div className="row">
-        <div className="box homerow2">
+        <div className="box homerow3">
           <div className="col-lg-12">
             <hr />
             <h2 className="intro-text text-center">Our 

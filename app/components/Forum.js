@@ -33,7 +33,7 @@ class Forum extends React.Component {
                        <hr />
                   <p>What others are saying...</p>
                   <hr />
-                      <SuggestionComponent />
+                  <SuggestionComponent />
                   </div>
                   <div className="col-lg-3">
                     <hr />
