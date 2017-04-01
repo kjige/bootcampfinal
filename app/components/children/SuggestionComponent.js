@@ -16,8 +16,9 @@ class SuggestionComponent extends React.Component {
   componentDidMount() {
     axios.get('/usersuggestion').then((response) => {
       console.log('this is the suggestion', response);
+      let reverse = response.data.reverse();
       this.setState({
-        suggestions: response.data
+        suggestions: reverse
       });
     });
   }
