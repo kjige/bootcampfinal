@@ -45,8 +45,8 @@ class EmployerProfile extends React.Component {
         <div className="row">
           <div className="box">
             <hr />
-            <h2 className="intro-text text-center">Employers
-                        <strong> Profile </strong>
+            <h2 className="intro-text text-center">Project Owner
+                        <strong> Profiles </strong>
             </h2>
             <hr />
             {this.state.docs.map((item, i) => {
