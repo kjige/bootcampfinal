@@ -19,6 +19,7 @@ class EachProfileComment extends React.Component {
 
   getUsername(userId) {
     axios.post('/users', {'_id':userId}).then((res)=>{
+      console.log('OWNER', res.data);
       this.setState({
         name: res.data[0].username
       })

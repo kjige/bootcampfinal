@@ -95,9 +95,10 @@ class UserProfile extends React.Component {
                     width="50"
                     height="50" />*/}
               <div>
-                <h2>name</h2>
+                <h2>Comments</h2>
                 <ul>
                   {this.state.suggestions.map((item, index) => {
+                    console.log('ITEM',item);
                     return (
                       <div key={index}>
                         <EachProfileComment id={item.user} suggestion={item.suggestion} />
