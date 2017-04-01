@@ -55,8 +55,8 @@ class UserProfile extends React.Component {
     return (
       <div className='container'>
         <div className="row">
-          <div className="box">
             <div className="col-lg-12">
+          <div className="box">
               <hr />
               <h2 className="intro-text text-center">
                 <strong>User Profile</strong>
@@ -65,8 +65,8 @@ class UserProfile extends React.Component {
               {this.state.profile.map((item, index) => {
                 return (
                   <div key={index} className='row'>
-                    <div className="col-lg-6">
-                      <img src={item.image} className='border-img' width='200' />
+                    <div className="col-xs-3 col-xs-offset-3">
+                      <img src={item.image} className='border-img pull-right' width='200' />
                     </div>
                     <div className="col-lg-6">
                       <h3>{item.name}</h3>
