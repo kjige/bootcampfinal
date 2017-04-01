@@ -69,6 +69,7 @@ class UserProfileConsultant extends React.Component {
               </h2>
               <hr />
               {this.state.profile.map((item, index) => {
+                console.log('ITEM', item);
                 return (
                   <div key={index} className='row'>
                     <div className="col-xs-3 col-xs-offset-3">
@@ -76,9 +77,8 @@ class UserProfileConsultant extends React.Component {
                     </div>
                     <div className="col-lg-6">
                       <h3>{item.name}</h3>
-                      <h4>Company: {item.company}</h4>
-                      <h5>Field Needed: {item.field_needed}</h5>
-                      <h5>Company Description: {item.description}</h5>
+                      <h5>Field: {item.field}</h5>
+                      <h5>Years Experience: {item.experience}</h5>
                     </div>
                   </div>
                 );
