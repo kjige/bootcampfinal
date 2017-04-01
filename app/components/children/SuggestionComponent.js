@@ -5,7 +5,6 @@ import { EachSuggestion } from './grandchildren/EachSuggestion';
 class SuggestionComponent extends React.Component {
 
   componentWillMount() {
-    // getUserId() =>
     var userId = sessionStorage.getItem('userId');
       this.setState({
         user: userId,
