@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
+import {EachProfileComment} from './children/EachProfileComment';
 
 class UserProfile extends React.Component {
 
@@ -21,6 +22,10 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     console.log('emp id', this.props.params.id);
+    this.getOwners();
+  }
+    
+    getOwners() {
     axios.get('/employerprofile/' + this.props.params.id).then((response) => {
       console.log('emp data', response.data);
       this.setState({
@@ -42,6 +47,7 @@ class UserProfile extends React.Component {
   saveNewPost(data) {
     axios.post('/profilesuggestionowner', data).then((data) => {
       console.log('emp comment', data);
+      this.getOwners();
     })
       .catch((error) => {
         console.log('error', error);
@@ -93,7 +99,9 @@ class UserProfile extends React.Component {
                 <ul>
                   {this.state.suggestions.map((item, index) => {
                     return (
-                      <li key={index}> Comment: {item.suggestion}</li>
+                      <div key={index}>
+                        <EachProfileComment id={item.user} suggestion={item.suggestion} />
+                      </div>
                     );
                   })}
                 </ul>
