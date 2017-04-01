@@ -116,9 +116,18 @@ body {
   height: 350px;
 }
 
+.homerow3 {
+  height: 360px;
+}
+
 .eachConsultant{
   width: 200px;
   height:150px;
+}
+
+.eachOwner{
+  width: 200px;
+  height:160px;
 }
 
 .image-size{

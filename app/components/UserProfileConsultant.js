@@ -21,20 +21,29 @@ class UserProfileConsultant extends React.Component {
 
   componentDidMount() {
     console.log('emp id', this.props.params.id);
+    this.getConsultants();
+  }
+  
+  getConsultants() {
     axios.get('/consultantprofile/' + this.props.params.id).then((response) => {
       console.log('emp data', response.data);
       this.setState({
         profile: response.data
       });
       this.setState({
-        suggestions: response.data[0].ProfileSuggestion
+        suggestions: response.data[0].ProfileSuggestion,
+        suggestion: ''
       });
+      console.log('SUGGESTIONS',this.state.suggestions);
     });
+  }
+
+  getSuggestionUsername() {
+    axios.get('')
   }
 
   updateInput(event) {
     const newState = {};
-
     newState[event.target.id] = event.target.value;
     this.setState(newState);
   }
@@ -42,21 +51,21 @@ class UserProfileConsultant extends React.Component {
   saveNewPost(data) {
     axios.post('/profilesuggestionconsultant', data).then((data) => {
       console.log('emp comment', data);
+      this.getConsultants();
     })
       .catch((error) => {
         console.log('error', error);
       });
     console.log('emp commment submitted', data);
   }
+
   render() {
-
-
 
     return (
       <div className='container'>
         <div className="row">
-          <div className="box">
             <div className="col-lg-12">
+          <div className="box">
               <hr />
               <h2 className="intro-text text-center">
                 <strong>User Profile</strong>
@@ -65,8 +74,8 @@ class UserProfileConsultant extends React.Component {
               {this.state.profile.map((item, index) => {
                 return (
                   <div key={index} className='row'>
-                    <div className="col-lg-6">
-                      <img src={item.image} className='border-img' width='200' />
+                    <div className="col-xs-3 col-xs-offset-3">
+                      <img src={item.image} className='border-img pull-right' width='200' />
                     </div>
                     <div className="col-lg-6">
                       <h3>{item.name}</h3>
@@ -93,7 +102,7 @@ class UserProfileConsultant extends React.Component {
                 <ul>
                   {this.state.suggestions.map((item, index) => {
                     return (
-                      <li key={index}>Comment: {item.suggestion}</li>
+                      <li key={index}> {item.suggestion}</li>
                     );
                   })}
                 </ul>
@@ -112,6 +121,7 @@ class UserProfileConsultant extends React.Component {
                     value={this.props.user} />
                   <label htmlFor='suggestion'>What's on my mind</label><br />
                   <textarea
+                    ref='suggestion'
                     id='suggestion'
                     type='text'
                     rows='5'
@@ -134,5 +144,9 @@ class UserProfileConsultant extends React.Component {
     );
   }
 }
+
+UserProfileConsultant.contextTypes = {
+  router: React.PropTypes.any
+};
 
 export { UserProfileConsultant };

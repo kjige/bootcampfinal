@@ -23,21 +23,26 @@ class SuggestionComponent extends React.Component {
   }
 
   render() {
+
     let suggestionItem = this.state.suggestions.map((item, index) => {
-      console.log('ITEM', item);
+
         let image;
         if (item.employer[0]) {
           image = item.employer[0].image;
-        } else if (item.employer[0] === undefined) {
-          // console.log('FREEIMAGE',item.freelancer[0].image);
-          // image = item.freelancer[0].image;
-        } else if (item.freelancer[0] === undefined){
+        } else if (item.freelancer[0]) {
+          image = item.freelancer[0].image;
+        } else if (!item.employer[0] && !item.freelancer[0]){
           image = './img/defaultimg.png';
         }
+
       return (
-        <EachSuggestion user={item.username} key={item._id} suggestion={item.suggestion} image={image} />
+        <div className=''>
+          <EachSuggestion user={item.username} key={item._id} suggestion={item.suggestion} image={image} />
+        </div>
       )
+
     });
+    
     return (
       <div className="box">
         {suggestionItem}
