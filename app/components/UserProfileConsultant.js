@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as axios from 'axios';
+import {EachProfileComment} from './children/EachProfileComment';
 
 class UserProfileConsultant extends React.Component {
 
@@ -102,7 +103,11 @@ class UserProfileConsultant extends React.Component {
                 <ul>
                   {this.state.suggestions.map((item, index) => {
                     return (
-                      <li key={index}> {item.suggestion}</li>
+                      <div key={index}>
+
+                        <EachProfileComment id={item.user} suggestion={item.suggestion} />
+                        {/*<li key={index}> {item.suggestion}</li>*/}
+                      </div>
                     );
                   })}
                 </ul>

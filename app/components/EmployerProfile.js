@@ -50,7 +50,6 @@ class EmployerProfile extends React.Component {
             </h2>
             <hr />
             {this.state.docs.map((item, i) => {
-              {console.log('emps2',item)};
               return (
                 <a href={"#/dash/userprofile/" + item._id}>
 
