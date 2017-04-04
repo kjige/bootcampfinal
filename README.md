@@ -1,6 +1,6 @@
 # Work It
 
-Work It is a platform to connect startups and professionals from different industries.
+Work It is a platform to connect startups and professionals from different industries. Link: https://workit2017.herokuapp.com
 
 # Screenshots
   
