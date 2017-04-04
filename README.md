@@ -2,10 +2,6 @@
 
 Work It is a platform to connect startups and professionals from different industries. Link: https://workit2017.herokuapp.com
 
-# Screenshots
-  
-![Alt text] (/screenshots/screenshot1.png?raw=true)
-
 # Technology Used
 * Node
 * Express
