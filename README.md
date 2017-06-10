@@ -1,10 +1,6 @@
 # Work It
 
-Work It is a platform to connect startups and professionals from different industries.
-
-# Screenshots
-  
-![Alt text] (/screenshots/screenshot1.png?raw=true)
+Work It is a platform to connect startups and professionals from different industries. Link: https://workit2017.herokuapp.com
 
 # Technology Used
 * Node
@@ -41,7 +37,7 @@ npm install express --save
 
 # Walk Through Of Some Interesting Code
 
-Creation of the user code using React-flip.js
+Fancy preview of user information on the landing page using React-flip
 ```
  <FlipCard type='vertical'>
             <div className='col-xs-12 text-center border-img eachConsultant'>
