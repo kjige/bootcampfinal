@@ -38,11 +38,11 @@ class EachProjectOwner extends React.Component {
   
   render() {
     return (
-        <div className="col-lg-3">
+        <div className="col-lg-12">
           <FlipCard>
             <div className='col-xs-12 text-center border-img eachOwner'>
               <img
-              className="img-circle image-size center-block"
+              className="img-circle image-size center-block helper vertical-center"
               src={this.props.image}
               alt="" />
               <h4>{this.props.name}</h4>

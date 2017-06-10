@@ -1,18 +1,18 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
-var methodOverride = require('method-override');
-var passport = require('passport');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var LocalStrategy = require('passport-local').Strategy;
-var User = require('./models/user');
-var db;
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const methodOverride = require('method-override');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('./models/user');
+const db;
 
 mongoose.Promise = require('bluebird');
 
-mongoose.connect("mongodb://heroku_9l5s2lr9:13eioldtva9du8smb6801hqpr3@ds137760.mlab.com:37760/heroku_9l5s2lr9", function (err) {
-    // "mongodb://localhost/workit_db"
+mongoose.connect("mongodb://localhost/workit_db", function (err) {
+// mongodb://heroku_9l5s2lr9:13eioldtva9du8smb6801hqpr3@ds137760.mlab.com:37760/heroku_9l5s2lr9"
     
     
     if (err) { console.log("Connection Failed!", err); } 

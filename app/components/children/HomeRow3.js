@@ -37,6 +37,7 @@ class HomeRow3 extends React.Component {
               {this.state.docs.map((item,i)=>{
                 if (i<4){
                   return(
+                    <div className="col-xs-3 helper" key={i}>
                       <EachProjectOwner
                       key={i} 
                       name={item.name}
@@ -45,6 +46,7 @@ class HomeRow3 extends React.Component {
                       description={item.description}
                       image={item.image}
                       />
+                    </div>
                   )
                 }
               })}
