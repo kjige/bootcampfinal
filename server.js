@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/user');
-let db;
+const db = mongoose.connection;
 
 mongoose.Promise = require('bluebird');
 
@@ -19,7 +19,6 @@ mongoose.connect("mongodb://localhost/workit_db", function (err) {
     
     else {
         console.log("Connection Successful!");
-        db = mongoose.connection;
         db.on('error', console.error.bind(console, 'DB connection error:'));
         db.once('open', function () {
             console.log("DB connected.");
