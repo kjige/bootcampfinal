@@ -1,14 +1,13 @@
-//comment
-var path = require('path');
-var passport = require('passport');
-var Strategy = require('passport-local').Strategy;
-var db = require('../models/user');
-var Employer = require('../models/employer')
-var Freelancer = require('../models/freelancer');
-var Suggestion = require('../models/suggestion');
-var Consultant = require('../models/consultantSuggestion');
-var ProfileSuggestion = require('../models/profileSuggestion');
-var User = db.User;
+const path = require('path');
+const passport = require('passport');
+const Strategy = require('passport-local').Strategy;
+const db = require('../models/user');
+const Employer = require('../models/employer')
+const Freelancer = require('../models/freelancer');
+const Suggestion = require('../models/suggestion');
+const Consultant = require('../models/consultantSuggestion');
+const ProfileSuggestion = require('../models/profileSuggestion');
+const User = db.User;
 
 module.exports = function (app) {
 
@@ -66,14 +65,12 @@ module.exports = function (app) {
 
     // signup routes
     app.post('/employer', function (req, res) {
-        // console.log(req.body);
+
         // create a new employer profile and pass the req.body to the entry
         var newEmployer = new Employer(req.body);
 
         // save the new employer in the employers collection
         newEmployer.save(function (err, doc) {
-            console.log(err);
-            console.log(doc);
 
             if (err) {
                 res.send(err);
@@ -105,7 +102,6 @@ module.exports = function (app) {
 
     // suggestion box
     app.post('/suggestion', function (req, res) {
-        console.log(req.body);
         var newSuggestion = new Suggestion(req.body);
 
         // save the new employer in the employers collection
@@ -219,14 +215,11 @@ module.exports = function (app) {
                 res.send(error);
             } else {
                 res.send(doc);
-                console.log('this is the document', doc);
-                console.log('?');
             }
         }); 
     });
 
     app.get('/employerprofile/:id', function (req, res) {
-         console.log('>', req.body);
          
         Employer.find({
             '_id': req.params.id
@@ -235,7 +228,6 @@ module.exports = function (app) {
                 res.send(error);
             } else {
                 res.send(doc);
-                console.log('employer',doc);
             }
         });
     });
@@ -246,16 +238,13 @@ module.exports = function (app) {
                 res.send(error);
             } else {
                 res.send(doc);
-                // console.log(doc);
             }
         });
     });
 
     app.post('/profilesuggestionowner', function (req, res) {
         var newProfileSuggestion = new ProfileSuggestion(req.body);
-        console.log('emp reqs requester', req.body.user);
-        // console.log(req.body.profile[0].name);
-        console.log(req.body);
+
         // save the new employer in the employers collection
         newProfileSuggestion.save(function (err, doc) {
             // console.log('emp doc', doc);
@@ -301,7 +290,6 @@ module.exports = function (app) {
     });
 
     app.get('/consultantprofile/:id', function (req, res) {
-         console.log('>', req.body);
          
         Freelancer.find({
             '_id': req.params.id
@@ -317,9 +305,7 @@ module.exports = function (app) {
 
     app.post('/profilesuggestionconsultant', function (req, res) {
         var newProfileSuggestion = new ProfileSuggestion(req.body);
-        console.log('emp reqs requester', req.body.user);
-        // console.log(req.body.profile[0].name);
-        console.log(req.body);
+        
         // save the new employer in the employers collection
         newProfileSuggestion.save(function (err, doc) {
             // console.log('emp doc', doc);
@@ -353,7 +339,6 @@ module.exports = function (app) {
     });
 
     app.post('/users', function(req,res){
-        // console.log('REQBODYID',req.body);
         db.find({'_id':req.body}, function(err,dbRes){
             console.log('DBRESUSERNAME',dbRes[0].username);
             res.json(dbRes);
