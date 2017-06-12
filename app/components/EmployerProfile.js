@@ -8,7 +8,6 @@ class EmployerProfile extends React.Component {
   componentWillMount() {
     this.initializeState();
     var userId = sessionStorage.getItem('userId');
-    // console.log('USERID', userId);
     this.checkId(userId);
     this.getJobs();
   }
@@ -29,7 +28,6 @@ class EmployerProfile extends React.Component {
 
   getJobs() {
     axios.get('/employers').then((res) => {
-      console.log('EMPS', res);
       this.setState({
         docs: res.data
       });
