@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { FreelancerSignUpForm } from './children/FreelancerSignUpForm';
 import { EmployerSignUpForm } from './children/EmployerSignUpForm';
 // import * as axios from 'axios';

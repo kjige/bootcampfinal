@@ -1,11 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import * as axios from 'axios';
 
 class Register extends React.Component{
   componentWillMount(){
     this.initializeState();
-    // var userId = sessionStorage.getItem('userId');
-    // this.checkId(userId);
   }
 
   initializeState() {
@@ -14,14 +12,6 @@ class Register extends React.Component{
       password: ''
     });
   }
-
-  // checkId(userId) {
-  //   if (userId) {
-  //     axios.post('findId', {'userId': userId}).then((res)=>{
-  //       if (res) this.context.router.push('/home');
-  //     })
-  //   }
-  // }
 
   handleSubmit(event) {
     event.preventDefault();

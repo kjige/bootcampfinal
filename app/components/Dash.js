@@ -1,4 +1,4 @@
-var React = require("react");
+import React from 'react';
 import { Router, Route, IndexRoute, hashHistory, Redirect } from "react-router";
 import { Footer } from "./Footer";
 import { Header2 } from "./Header2";

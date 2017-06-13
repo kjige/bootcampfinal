@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { ForumForm } from './children/ForumForm';
 import { SuggestionComponent } from './children/SuggestionComponent';

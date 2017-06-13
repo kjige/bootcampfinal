@@ -1,10 +1,7 @@
-
-    // Requiring react npm Package.
-var React = require("react");
-// var Search = require("./search");
+import React from 'react';
 
 import {link} from 'react-router';
-// Create a new class and assign it in a variable Main.
+
 class Footer extends React.Component{
     render(){
         return(
@@ -21,4 +18,3 @@ class Footer extends React.Component{
 }
 
 export {Footer};  
-// {class1,class2}
